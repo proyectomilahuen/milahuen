@@ -1,0 +1,9 @@
+.water-animation,
+.tree-animation {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

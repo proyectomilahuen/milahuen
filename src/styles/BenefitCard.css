@@ -1,32 +1,35 @@
 .benefit-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    margin: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    max-width: 250px;
-    text-align: center;
-  }
-  
-  .benefit-card__image {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-    margin-bottom: 10px;
-  }
-  
-  .benefit-card__title {
-    font-size: 1.2rem;
-    color: #333;
-    margin: 10px 0 5px;
-  }
-  
-  .benefit-card__description {
-    font-size: 18px;
-    color: #555;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  max-width: 250px;
+  min-height: 300px;
+  text-align: center;
+}
+
+.benefit-card__image {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.benefit-card__title {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 10px 0 5px;
+}
+
+.benefit-card__description {
+  font-size: 0.9rem;
+  color: #555;
+  flex-grow: 1;
+}

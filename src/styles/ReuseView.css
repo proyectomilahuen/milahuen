@@ -1,12 +1,23 @@
 .reuse-view {
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .reuse-view h2 {
-    text-align: center;
-    font-size: 1.8rem;
-    color: #333;
-    margin: 20px 0;
-  }
-  
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.reuse-view h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+  margin: 20px 0;
+}
+
+.water-animation-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.water-animation {
+  width: 200px;
+  max-width: 100%;
+}

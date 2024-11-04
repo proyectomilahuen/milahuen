@@ -1,25 +1,27 @@
 import React, { useContext } from 'react';
 import BenefitCard from './BenefitCard';
 import { ReuseContext } from '../context/ReuseContext';
+import WaterAnimation from './WaterAnimation';
+import TreeAnimation from './TreeAnimation';
 import '../styles/BenefitsSection.css';
 
 function BenefitsSection() {
   const { reuseCount } = useContext(ReuseContext);
 
-  // Cálculo aproximado de los beneficios, en vdd desconozco la conversión xD
+  // Cálculo aproximado de los beneficios
   const treesSaved = (reuseCount * 0.1).toFixed(0);
   const waterSaved = (reuseCount * 0.9).toFixed(0);
 
   const benefits = [
     {
       id: 1,
-      image: '/images/tree.jpg',
+      animation: <TreeAnimation />,
       title: 'Tala de árboles evitada',
       description: `Al reutilizar frascos, aproximadamente se evitaron ${treesSaved} árboles.`,
     },
     {
       id: 2,
-      image: '/images/water.png',
+      animation: <WaterAnimation />,
       title: 'Ahorro de agua',
       description: `Gracias a la economía circular, se ahorraron aproximadamente ${waterSaved} litros de agua.`,
     },
@@ -32,6 +34,7 @@ function BenefitsSection() {
           <BenefitCard
             key={benefit.id}
             image={benefit.image}
+            animation={benefit.animation}
             title={benefit.title}
             description={benefit.description}
           />
