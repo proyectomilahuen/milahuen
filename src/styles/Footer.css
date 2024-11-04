@@ -1,0 +1,35 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+  }
+  
+  .footer__categories {
+    margin-bottom: 15px;
+  }
+  
+  .footer__categories a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .footer__categories a:hover {
+    color: #ffa500;
+  }
+  
+  .footer__socials a {
+    margin: 0 8px;
+    color: #333;
+    font-size: 1.5rem;
+  }
+  
+  .footer__socials a:hover {
+    color: #ffa500;
+  }
+  

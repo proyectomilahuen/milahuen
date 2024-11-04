@@ -1,0 +1,35 @@
+.benefits-section {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .benefits-section__content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px; /* Espacio extra debajo de las tarjetas de beneficios */
+  }
+  
+  .benefits-section__reward {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .benefits-section__reward-text {
+    font-size: 1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 20px;
+  }
+  
+  .benefits-section__reward-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  

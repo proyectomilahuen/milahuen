@@ -1,0 +1,32 @@
+# Dependencias de Node.js
+/node_modules
+
+# Archivos de entorno
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Archivos de compilación
+/build
+/dist
+
+# Archivos de log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de sistema (MacOS)
+.DS_Store
+
+# Directorio de caché de React
+.cache/
+
+# Configuraciones de editores
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Otros archivos o carpetas específicas de tu proyecto
+coverage/

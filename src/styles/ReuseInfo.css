@@ -1,0 +1,50 @@
+.reuse-info {
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #ffa60067;;
+    border-radius: 8px;
+  }
+  
+  .reuse-info__intro {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .reuse-info__counter {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffa500;
+    margin-bottom: 20px;
+  }
+  
+  .reuse-info__count {
+    color: #1b5e20;
+  }
+  
+  .reuse-info__impact {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .reuse-info__impact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 150px;
+  }
+  
+  .reuse-info__icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .reuse-info__impact-item p {
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+  }
+  

@@ -1,0 +1,82 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  position: relative;
+}
+
+.header__socials,
+.header__actions {
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.header__socials a {
+  margin-right: 10px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.header__socials a:hover {
+  color: #ffa500;
+}
+
+.header__logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  margin-bottom: 20px;
+  top: 10px;
+}
+
+.app-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.header__logo-image {
+  height: 100px;
+  width: auto;
+  margin-top: 15px;
+}
+
+.header__actions button {
+  background: none;
+  border: none;
+  margin-left: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.header__login-button {
+  margin-left: 15px;
+  padding: 5px 10px;
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.header__login-button:hover {
+  background-color: #e59400;
+}
+
+.header__cart-button:hover {
+  background-color: #e59400;
+}
+
+.header__cart-count {
+  background-color: #ffa500;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
