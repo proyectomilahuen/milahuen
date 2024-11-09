@@ -3,9 +3,9 @@ import { CartContext } from '../context/CartContext';
 import '../styles/SidebarCart.css';
 
 function SidebarCart({ isOpen, onClose }) {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, updateQuantity, removeItem } = useContext(CartContext);
 
-  // Calcular el total y redondearlo
+  // Calcular el total redondeado
   const total = Math.round(cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0));
 
   return (
@@ -19,8 +19,27 @@ function SidebarCart({ isOpen, onClose }) {
               <img src={item.image} alt={item.name} className="sidebar-cart__item-image" />
               <div className="sidebar-cart__item-details">
                 <p>{item.name}</p>
-                <p>Cantidad: {item.quantity}</p>
-                <p>Precio: ${Math.round(item.price)}</p> {/* Redondea el precio de cada artículo */}
+                <p>Precio: ${Math.round(item.price)}</p>
+
+                <div className="sidebar-cart__quantity-controls">
+                  <button 
+                    className="sidebar-cart__quantity-btn" 
+                    onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                    disabled={item.quantity <= 1}
+                  >-</button>
+                  <span className="sidebar-cart__quantity">{item.quantity}</span>
+                  <button 
+                    className="sidebar-cart__quantity-btn" 
+                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                  >+</button>
+                </div>
+
+                <button 
+                  className="sidebar-cart__remove-btn" 
+                  onClick={() => removeItem(item.id)}
+                >
+                  Eliminar
+                </button>
               </div>
             </div>
           ))
@@ -29,9 +48,9 @@ function SidebarCart({ isOpen, onClose }) {
         )}
       </div>
 
-      {/* Mostrar el total redondeado */}
       <div className="sidebar-cart__total">
-        <p>Total: ${total}</p>
+        <span>Total:</span>
+        <span>${total}</span>
       </div>
 
       <button className="sidebar-cart__checkout">Continuar Compra</button>

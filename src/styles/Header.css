@@ -1,10 +1,13 @@
 .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 5px 0;
   background-color: #f8f8f8;
-  position: relative;
 }
 
 .header__socials,
@@ -15,9 +18,10 @@
 }
 
 .header__socials a {
-  margin-right: 10px;
+  margin-right: 1px;
   color: #333;
   font-size: 1.2rem;
+  margin-left: 10px;
 }
 
 .header__socials a:hover {
@@ -25,24 +29,12 @@
 }
 
 .header__logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 0;
-  margin-bottom: 20px;
-  top: 10px;
-}
-
-.app-nav {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
+  display: none;
 }
 
 .header__logo-image {
-  height: 100px;
+  height: 80px;
   width: auto;
-  margin-top: 15px;
 }
 
 .header__actions button {
@@ -54,19 +46,19 @@
   color: #333;
 }
 
-.header__login-button {
-  margin-left: 15px;
-  padding: 5px 10px;
-  background-color: #ffa500;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.header__login-button,
+.header__login-icon {
+  font-size: 1.1rem;
+  color: #333;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: -5px;
 }
 
-.header__login-button:hover {
+.header__login-icon:hover{
   background-color: #e59400;
 }
+
 
 .header__cart-button:hover {
   background-color: #e59400;
@@ -79,4 +71,48 @@
   padding: 2px 6px;
   font-size: 0.8rem;
   margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px;
+    justify-content: space-between;
+  }
+
+  .header__logo {
+    display: block;
+  }
+
+  .header__logo-image {
+    height: 60px;
+    margin-top: 0;
+  }
+
+  .header__socials {
+    margin-left: 10px;
+  }
+
+  .hamburger-menu {
+    display: block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+
+  .header__login-icon {
+    display: inline;
+    font-size: 1.5rem;
+    color: #333;
+    margin-left: 10px;
+  }
+
+  .header__login-button {
+    display: none;
+  }
+
+  .header__socials{
+    display: none;
+  }
 }

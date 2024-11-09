@@ -1,0 +1,164 @@
+.navbar {
+  position: fixed;
+  top: 36px;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #c39406;
+  padding: 10px 40px;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar__logo img {
+  height: 50px;
+}
+
+.navbar__links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  position: relative;
+}
+
+.navbar__links li {
+  font-size: 1rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.navbar__links a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar__links a:hover {
+  color: #1F271B;
+}
+
+/* Estilos para el menú desplegable debajo de "Productos" */
+.navbar__link-dropdown {
+  position: relative;
+}
+
+.dropdown {
+  display: none; /* Por defecto, el menú está oculto */
+  position: absolute;
+  top: 100%; /* Debajo del enlace de "Productos" */
+  left: 0;
+  background-color: #ffffff;
+  color: #333;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  gap: 20px;
+  min-width: 600px; /* Ajusta el ancho para adaptarse al diseño */
+}
+
+/* Mostrar el menú desplegable solo al hacer hover en "Productos" */
+.navbar__link-dropdown:hover .dropdown {
+  display: flex;
+}
+
+.dropdown-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 150px;
+}
+
+.dropdown-column h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #c39406;
+}
+
+.dropdown-column a {
+  color: #333;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.dropdown-column a:hover {
+  color: #ffa500;
+}
+
+/* Barra de búsqueda */
+.navbar__search {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 250px;
+}
+
+.navbar__search input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 5px;
+  font-size: 0.9rem;
+}
+
+.navbar__search-icon {
+  color: #1c1c1c;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.navbar__search-icon:hover {
+  color: #c39406;
+}
+
+/* Menú de hamburguesa - Botón */
+.hamburger-menu {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+}
+
+/* Menú móvil desplegable */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: white;
+  z-index: 1000;
+}
+
+.mobile-menu a {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.mobile-menu a:hover {
+  color: #ffa500;
+}

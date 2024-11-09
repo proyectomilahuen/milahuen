@@ -30,8 +30,33 @@ export const CartProvider = ({ children }) => {
     setCartItems([]);
   };
 
+  // Nueva función para actualizar la cantidad de un producto específico
+  const updateQuantity = (productId, newQuantity) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === productId ? { ...item, quantity: newQuantity } : item
+      )
+    );
+  };
+
+  // Nueva función para eliminar un producto específico
+  const removeItem = (productId) => {
+    setCartItems((prevItems) =>
+      prevItems.filter((item) => item.id !== productId)
+    );
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        updateQuantity,  
+        removeItem       
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

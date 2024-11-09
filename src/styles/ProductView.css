@@ -1,53 +1,58 @@
 .product-view {
-    padding: 20px;
-  }
-  
-  .product-view__carousel {
-    width: 100%;
-    max-height: 300px;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  
-  .product-view__carousel img {
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    object-position: center;
-  }
-  
-  
-  .product-view__title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    margin: 40px 0 20px;
-  }
-  
-  .product-view__title::before,
-  .product-view__title::after {
-    content: "";
-    flex: 1;
-    border-top: 2px solid #ccc;
-    margin: 0 15px;
-  }
- 
-  .product-view__grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap; 
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Estilos para las flechas */
+  padding: 20px;
+}
+
+.product-view__carousel {
+  width: 100%;
+  max-height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.product-view__carousel img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.product-view__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.product-view__title::before,
+.product-view__title::after {
+  content: "";
+  flex: 1;
+  border-top: 2px solid #ccc;
+  margin: 0 15px;
+}
+
+.product-view__grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.product-view__grid.featured {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Estilos para las flechas */
 .arrow {
   display: flex;
   align-items: center;
@@ -74,4 +79,15 @@
 
 .arrow:hover {
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-view__title {
+      font-size: 1.5rem;
+  }
+
+  .product-view__grid {
+      gap: 10px;
+  }
 }

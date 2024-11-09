@@ -17,13 +17,21 @@ function BenefitsSection() {
       id: 1,
       animation: <TreeAnimation />,
       title: 'Tala de árboles evitada',
-      description: `Al reutilizar frascos, aproximadamente se evitaron ${treesSaved} árboles.`,
+      description: (
+        <>
+          Al reutilizar frascos, aproximadamente se evitaron <strong>{treesSaved} árboles</strong>.
+        </>
+      ),
     },
     {
       id: 2,
       animation: <WaterAnimation />,
       title: 'Ahorro de agua',
-      description: `Gracias a la economía circular, se ahorraron aproximadamente ${waterSaved} litros de agua.`,
+      description: (
+        <>
+          Gracias a la economía circular, se ahorraron aproximadamente <strong>{waterSaved} litros de agua</strong>.
+        </>
+      ),
     },
   ];
 

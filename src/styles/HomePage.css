@@ -1,0 +1,11 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+  }
+  
+  .home-page__sustainability,
+  .home-page__products {
+    width: 100%;
+  }
