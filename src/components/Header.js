@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { FaFacebook, FaInstagram, FaTiktok, FaShoppingCart, FaSearch, FaBars, FaUser } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTiktok, FaShoppingCart, FaBars, FaUser, FaTimes, FaChevronDown } from 'react-icons/fa';
 import { CartContext } from '../context/CartContext';
 import Navbar from './Navbar';
 import '../styles/Header.css';
@@ -8,20 +8,24 @@ function Header({ onCartClick }) {
   const { cartItems } = useContext(CartContext);
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isProductsDropdownOpen, setProductsDropdownOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
+    setProductsDropdownOpen(false);
+  };
+
+  const toggleProductsDropdown = () => {
+    setProductsDropdownOpen(!isProductsDropdownOpen);
   };
 
   return (
     <>
       <header className="header">
-        {/* Menú de hamburguesa para móviles */}
         <button className="hamburger-menu" onClick={toggleMobileMenu} aria-label="Menú">
-          <FaBars />
+          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
         
-        {/* Redes sociales */}
         <div className="header__socials">
           <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
             <FaFacebook />
@@ -34,32 +38,47 @@ function Header({ onCartClick }) {
           </a>
         </div>
 
-        {/* Logo */}
         <div className="header__logo">
           <img src="/images/logo.png" alt="Milahuén Logo" className="header__logo-image" />
         </div>
 
-        {/* Acciones (carrito y login) */}
         <div className="header__actions">
           <button aria-label="Carrito" className="header__cart-button" onClick={onCartClick}>
             <FaShoppingCart />
             {totalItems > 0 && <span className="header__cart-count">{totalItems}</span>}
           </button>
-          {/* Icono de login (persona) visible en todas las resoluciones */}
           <FaUser className="header__login-icon" aria-label="Login" />
         </div>
       </header>
 
-      {/* Navbar solo visible en pantallas grandes */}
       <Navbar />
 
-      {/* Menú móvil que se muestra al hacer clic en el botón hamburguesa */}
       {isMobileMenuOpen && (
         <div className="mobile-menu">
+          <button className="close-menu" onClick={toggleMobileMenu} aria-label="Cerrar menú">×</button>
           <a href="/" onClick={toggleMobileMenu}>Inicio</a>
-          <a href="/productos" onClick={toggleMobileMenu}>Productos</a>
+          
+          <div className="mobile-menu__divider-top"></div>
+          
+          <div onClick={toggleProductsDropdown} className="mobile-menu__dropdown">
+            Productos
+            <FaChevronDown className="dropdown-arrow" />
+          </div>
+          
+          {isProductsDropdownOpen && (
+            <div className="mobile-menu__dropdown-content">
+              <a href="/frutos-secos" onClick={toggleMobileMenu}>Frutos Secos</a>
+              <a href="/semillas" onClick={toggleMobileMenu}>Semillas</a>
+              <a href="/cereales-integrales" onClick={toggleMobileMenu}>Cereales Integrales</a>
+              <a href="/legumbres" onClick={toggleMobileMenu}>Legumbres</a>
+              <a href="/envasados" onClick={toggleMobileMenu}>Envasados</a>
+            </div>
+          )}
+          
+          <div className="mobile-menu__divider-bottom"></div>
+          
           <a href="/sustentabilidad" onClick={toggleMobileMenu}>Sustentabilidad</a>
-          <a href="/contacto" onClick={toggleMobileMenu}>Contacto</a>
+          <a href="/nosotros" onClick={toggleMobileMenu}>Nosotros</a>
         </div>
       )}
     </>

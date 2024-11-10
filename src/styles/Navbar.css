@@ -44,9 +44,9 @@
 }
 
 .dropdown {
-  display: none; /* Por defecto, el menú está oculto */
+  display: none;
   position: absolute;
-  top: 100%; /* Debajo del enlace de "Productos" */
+  top: 100%;
   left: 0;
   background-color: #ffffff;
   color: #333;
@@ -56,7 +56,7 @@
   z-index: 1000;
   display: flex;
   gap: 20px;
-  min-width: 600px; /* Ajusta el ancho para adaptarse al diseño */
+  min-width: 600px;
 }
 
 /* Mostrar el menú desplegable solo al hacer hover en "Productos" */
