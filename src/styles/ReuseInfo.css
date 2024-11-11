@@ -1,10 +1,10 @@
 .reuse-info {
-    text-align: center;
-    padding: 20px;
-    margin: 20px 0;
-    background-color: #ffa60067;;
-    border-radius: 8px;
-  }
+  text-align: center;
+  padding: 20px;
+  margin: 20px 0;
+  
+  border-radius: 8px;
+}
   
   .reuse-info__intro {
     font-size: 20px;
@@ -18,9 +18,36 @@
     color: #ffa500;
     margin-bottom: 20px;
   }
+
+  .tipografia-home {
+    font-family: 'DynaPuff', sans-serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .tipografia-home2 {
+    font-family: "Mansalva", sans-serif;
+    font-weight: 700;    /* Esto hará que el texto sea más grueso */
+    font-size: 3rem;
+    color: white;
+  
+  }
+  .tipografia-home3 {
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3rem;
+    color: white;
+  
+  }
+
+
   
   .reuse-info__count {
-    color: #1b5e20;
+    color: #c0e354;
   }
   
   .reuse-info__impact {

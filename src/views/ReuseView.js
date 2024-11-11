@@ -5,7 +5,7 @@ import '../styles/ReuseView.css';
 
 function ReuseView() {
   return (
-    <div className="reuse-view">
+    <div className="reuse-view reuse-view-image">
       <ReuseInfo />
       <BenefitsSection />
     </div>

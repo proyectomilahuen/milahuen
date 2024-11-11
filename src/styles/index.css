@@ -1,7 +1,13 @@
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Noto Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
     background-color: #f9f9f9;
+    background-image: url('http://localhost:3000/images/fondo_global13.png')
   }
   
   * {

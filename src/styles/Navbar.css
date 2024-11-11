@@ -32,6 +32,14 @@
 .navbar__links a {
   color: white;
   text-decoration: none;
+
+  font-family: "Noto Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+
 }
 
 .navbar__links a:hover {
@@ -103,6 +111,13 @@
   width: 100%;
   padding: 5px;
   font-size: 0.9rem;
+
+  font-family: "Noto Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .navbar__search-icon {

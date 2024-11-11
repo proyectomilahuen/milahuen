@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import '../styles/InventoryCard.css';
 
 
+
 function InventoryCard({ image, name }) {
 
     const product = { id: name, image, name };
