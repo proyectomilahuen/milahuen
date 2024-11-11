@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './views/HomePage';
+import InventoryView from './views/InventoryView';
 import SidebarCart from './components/SidebarCart';
 import FrutosSecos from './views/FrutosSecos';
 import Semillas from './views/Semillas';
@@ -38,6 +39,7 @@ function App() {
           <Route path="/legumbres" element={<Legumbres />} />
           <Route path="/envasados" element={<Envasados />} />
           <Route path="/nosotros" element={<AboutUs />} />
+          <Route path="/inventario" element={<InventoryView />} />
         </Routes>
       </div>
 

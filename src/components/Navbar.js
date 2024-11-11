@@ -72,6 +72,9 @@ function Navbar() {
         <li>
           <Link to="/nosotros">¿Quiénes somos?</Link>
         </li>
+        <li>
+          <Link to="/inventario">Inventario</Link>
+        </li>
       </ul>
       <div className="navbar__search">
         <input type="text" placeholder="¿Qué estás buscando?..." />

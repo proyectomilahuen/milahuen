@@ -1,0 +1,91 @@
+.inventory-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    text-align: center;
+}
+
+.inventory-card__image {
+    width: 60%;
+    height: 190px;
+    object-fit: contain;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.inventory-card__name {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.inventory-card__price {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.inventory-card__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.inventory-card__button {
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.inventory-card__button.add-to-cart {
+    background-color: #ffa500;
+    color: white;
+}
+
+.inventory-card__button.add-to-cart:hover {
+    background-color: #e59400;
+}
+
+.inventory-card__button.buy-now {
+    background-color: #333;
+    color: white;
+}
+
+.inventory-card__button.buy-now:hover {
+    background-color: #555;
+}
+
+
+.inventory-view__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin: 40px 0 20px;
+  }
+
+  .inventory-view__grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
