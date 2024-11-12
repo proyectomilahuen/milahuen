@@ -6,8 +6,12 @@ import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './views/HomePage';
+import ListaProovView from './views/ListaProovView';
+import ListProductsView from './views/ListProductsView';
 import InventoryView from './views/InventoryView';
 import SidebarCart from './components/SidebarCart';
+import  ProductForm  from './components/ProductForm';
+import ProveedorForm from './components/ProveedorForm';
 import FrutosSecos from './views/FrutosSecos';
 import Semillas from './views/Semillas';
 import CerealesIntegrales from './views/CerealesIntegrales';
@@ -40,6 +44,15 @@ function App() {
           <Route path="/envasados" element={<Envasados />} />
           <Route path="/nosotros" element={<AboutUs />} />
           <Route path="/inventario" element={<InventoryView />} />
+          <Route path="/listaProov" element={<ListaProovView />} />
+          <Route path="/listaProduct" element={<ListProductsView />} />
+          <Route path="/productForm" element={<ProductForm />} />
+          <Route path="/proveedorForm" element={<ProveedorForm />} />
+
+          
+          
+
+          
         </Routes>
       </div>
 
