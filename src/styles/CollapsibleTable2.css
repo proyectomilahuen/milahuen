@@ -1,0 +1,35 @@
+.table-container {
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table {
+    min-width: 650px;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  
+  .table th {
+    background-color: #c39406;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 12px 16px;
+    text-align: left;
+  }
+  
+  .table td {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 1rem;
+  }
+  
+  .table tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9; 
+  }
+  
+  .table tbody tr:hover {
+    background-color: #e2e2e2;
+  }
+  
