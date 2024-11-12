@@ -7,7 +7,7 @@ body {
     font-variation-settings:
       "wdth" 100;
     background-color: #f9f9f9;
-    background-image: url('http://localhost:3000/images/fondo_global13.png')
+    background-image: url('/public/images/fondo_global13.png');
   }
   
   * {
