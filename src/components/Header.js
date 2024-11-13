@@ -3,6 +3,7 @@ import { FaFacebook, FaInstagram, FaTiktok, FaShoppingCart, FaBars, FaUser, FaTi
 import { CartContext } from '../context/CartContext';
 import Navbar from './Navbar';
 import '../styles/Header.css';
+import { Link } from 'react-router-dom';
 
 function Header({ onCartClick }) {
   const { cartItems } = useContext(CartContext);
@@ -47,7 +48,9 @@ function Header({ onCartClick }) {
             <FaShoppingCart />
             {totalItems > 0 && <span className="header__cart-count">{totalItems}</span>}
           </button>
-          <FaUser className="header__login-icon" aria-label="Login" />
+          <Link to="/login">
+            <FaUser className="header__login-icon" aria-label="Login" />
+          </Link>
         </div>
       </header>
 

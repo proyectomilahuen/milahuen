@@ -1,0 +1,52 @@
+.register {
+    background-color: #ffd700;
+    padding: 15px;
+    border: 2px solid white;
+    border-radius: 9px;
+    max-width: 350px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.h1-form {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.p-form {
+    color: #555;
+    font-size: 16px;
+}
+
+.input-form {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-form-register {
+    width: 100%;
+    padding: 10px;
+    background-color: #ec971f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-form-register:hover {
+    background-color: #d8871b;
+}
+
+.p-form-link {
+    font-size: 14px;
+    color: #333;
+}
+
+.link-login {
+    color: blue;
+    text-decoration: underline;
+}

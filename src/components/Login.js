@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import '../styles/Login.css';
+import "../styles/Login.css";
 
 const Login = ({ setUser }) => {
   const [username, setUsername] = useState("");
@@ -10,7 +10,6 @@ const Login = ({ setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Formulario enviado");
 
     if (!username || !password) {
       setError("Por favor ingresa ambos campos");
@@ -20,16 +19,17 @@ const Login = ({ setUser }) => {
 
     try {
       console.log("Enviando solicitud de login...");
+
       const response = await axios.post(
-        `https://emporio-milahuen.onrender.com/login/`,
+        `${process.env.REACT_APP_API_URL}login/`,
         { username, password },
         { headers: { "Content-Type": "application/json" } }
       );
 
-      const { user } = response.data;
+      const { token, user } = response.data;
 
-      if (!user) {
-        setError("Usuario no encontrado o credenciales incorrectas");
+      if (!token) {
+        setError("Usuario no registrado o credenciales incorrectas");
         return;
       }
 
@@ -37,29 +37,33 @@ const Login = ({ setUser }) => {
         id: user.id,
         username: user.username,
         email: user.email,
-        isAdmin: user.isAdmin || false,
       });
 
-      setSuccessMessage("Inicio de sesión exitoso.");
-      if (user.isAdmin) {
+      const adminToken = process.env.REACT_APP_ADMIN_TOKEN;
+      if (token === adminToken) {
+        setSuccessMessage("Inicio de sesión exitoso.");
+        setError(null);
         window.location.replace("/inventario");
+      } else {
+        setSuccessMessage("Inicio de sesión exitoso, pero no tienes permisos de administrador.");
       }
     } catch (error) {
-      console.log("Error en la solicitud:", error); // Para depuración
-      setError(
-        error.response && error.response.data
-          ? error.response.data
-          : "Hubo un error en la solicitud"
-      );
+      console.log("Error en la solicitud:", error);
+      
+      const errorMessage = error.response && error.response.data && error.response.data.detail === "No User matches the given query."
+        ? "Usuario no registrado o credenciales incorrectas."
+        : "Hubo un error en la solicitud";
+
+      setError(errorMessage);
       setSuccessMessage("");
     }
   };
 
   return (
     <section className="login">
-      <h1 className="h1-form-login">¡Hola!</h1>
-      <p className="p-form-login">Qué bueno tenerte de vuelta.</p>
-      <form className="formulario-login" onSubmit={handleSubmit}>
+      <h1 className="h1-form">¡Hola!</h1>
+      <p className="p-form">Qué bueno tenerte de vuelta.</p>
+      <form className="formulario" onSubmit={handleSubmit}>
         <input
           className="input-form"
           type="text"

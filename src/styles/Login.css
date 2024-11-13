@@ -68,4 +68,5 @@
     color: white; /* Color del texto del botón en blanco */
     font-size: 1.1vw;
     margin: 0.5rem 0;
+    cursor: pointer;
 }

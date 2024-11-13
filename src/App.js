@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './views/HomePage';
 import LoginView from './views/LoginView';
+import RegisterView from './views/RegisterView';
 import ListaProovView from './views/ListaProovView';
 import ListProductsView from './views/ListProductsView';
 import InventoryView from './views/InventoryView';
@@ -50,6 +51,7 @@ function App() {
           <Route path="/productForm" element={<ProductForm />} />
           <Route path="/proveedorForm" element={<ProveedorForm />} />
           <Route path="/login" element={<LoginView />} />
+          <Route path="/registro" element={<RegisterView />} />
 
           
           
