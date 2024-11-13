@@ -4,12 +4,13 @@ import '../styles/Login.css';
 
 const Login = ({ setUser }) => {
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState(""); // Renombrado a password para consistencia
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Formulario enviado");
 
     if (!username || !password) {
       setError("Por favor ingresa ambos campos");
@@ -18,35 +19,33 @@ const Login = ({ setUser }) => {
     }
 
     try {
+      console.log("Enviando solicitud de login...");
       const response = await axios.post(
-        `http://emporio-milahuen.onrender.com/login/`,
+        `https://emporio-milahuen.onrender.com/login/`,
         { username, password },
         { headers: { "Content-Type": "application/json" } }
       );
 
-      // Se asume que el backend devuelve un objeto user si la autenticación es exitosa
-      const user = response.data.user;
+      const { user } = response.data;
 
       if (!user) {
         setError("Usuario no encontrado o credenciales incorrectas");
         return;
       }
 
-      // Guardamos el usuario en el estado
       setUser({
         id: user.id,
         username: user.username,
         email: user.email,
-        isAdmin: user.isAdmin || false, // Ajusta esto según el backend
+        isAdmin: user.isAdmin || false,
       });
 
-      // Mensaje de éxito y redirección si es administrador
       setSuccessMessage("Inicio de sesión exitoso.");
       if (user.isAdmin) {
         window.location.replace("/inventario");
       }
-      
     } catch (error) {
+      console.log("Error en la solicitud:", error); // Para depuración
       setError(
         error.response && error.response.data
           ? error.response.data
