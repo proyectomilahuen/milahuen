@@ -1,61 +1,56 @@
 import { useState } from "react";
-import axios from "axios"; // Asegúrate de importar axios
+import axios from "axios";
 import '../styles/Login.css';
 
-// Cambio: exportamos Login como exportación por defecto
 const Login = ({ setUser }) => {
   const [username, setUsername] = useState("");
-  const [contrasena, setContrasena] = useState("");
-  const [error, setError] = useState(false);
+  const [password, setPassword] = useState(""); // Renombrado a password para consistencia
+  const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleSubmit = async (e) => {
-    console.log("1. entre");
     e.preventDefault();
 
-    // Cambié el operador | por ||
-    if (!username || !contrasena) {
-      setError(true);
+    if (!username || !password) {
+      setError("Por favor ingresa ambos campos");
       setSuccessMessage("");
       return;
     }
-    console.log("3. no entre if");
 
     try {
-      console.log("4. entre try");
-
-
-      const token = btoa(`${username}:${password}`);
-
-      const response = await axios.get(
-        `http://localhost:8090/user/usuario/${username}`,
-        {
-          headers: {
-            Authorization: `Basic ${token}`,
-          },
-        }
+      const response = await axios.post(
+        `http://emporio-milahuen.onrender.com/login/`,
+        { username, password },
+        { headers: { "Content-Type": "application/json" } }
       );
-      console.log("5. entre get");
 
-      console.log(response);
+      // Se asume que el backend devuelve un objeto user si la autenticación es exitosa
+      const user = response.data.user;
 
-      if (response.data === "Usuario no encontrado") {
-        setError(true);
-        console.log("Usuario no encontrado");
+      if (!user) {
+        setError("Usuario no encontrado o credenciales incorrectas");
         return;
       }
 
-      
-      setUser(response.data); 
-      if (response.data === true) {
-        console.log("Usuario autenticado, redirigiendo...");
-     
+      // Guardamos el usuario en el estado
+      setUser({
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        isAdmin: user.isAdmin || false, // Ajusta esto según el backend
+      });
+
+      // Mensaje de éxito y redirección si es administrador
+      setSuccessMessage("Inicio de sesión exitoso.");
+      if (user.isAdmin) {
         window.location.replace("/inventario");
-        return;
       }
+      
     } catch (error) {
       setError(
-        error.response ? error.response.data : "Hubo un error en la solicitud"
+        error.response && error.response.data
+          ? error.response.data
+          : "Hubo un error en la solicitud"
       );
       setSuccessMessage("");
     }
@@ -76,8 +71,8 @@ const Login = ({ setUser }) => {
         <input
           className="input-form"
           type="password"
-          value={contrasena}
-          onChange={(e) => setContrasena(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           placeholder="Contraseña*"
         />
         <button className="btn-form-login" type="submit">
@@ -91,12 +86,8 @@ const Login = ({ setUser }) => {
         </p>
       </form>
 
-      {error && (
-        <p style={{ color: "#e71d36" }}>Por favor ingresa ambos campos</p>
-      )}
-      {successMessage && (
-        <p style={{ color: "#28a745" }}>{successMessage}</p> // Mensaje de éxito
-      )}
+      {error && <p style={{ color: "#e71d36" }}>{error}</p>}
+      {successMessage && <p style={{ color: "#28a745" }}>{successMessage}</p>}
     </section>
   );
 };
