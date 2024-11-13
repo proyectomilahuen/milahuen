@@ -1,0 +1,71 @@
+.login {
+    background-color: #ffd700; /* Color de fondo del contenedor */
+    padding: 15px;
+    border: 2px solid white;
+    border-radius: 9px;
+    max-width: 350px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .formulario {
+    display: flex;
+    gap: 15px;
+  
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-color: #00a499;
+    margin: 0 auto;
+  }
+
+  .h1-form {
+    text-align: left;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    color: var(--color-primary);
+    margin: 0%;
+    padding-left: 0px;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .p-form {
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    font-size: 1rem;
+    color: var(--color-primary);
+    font-size: 16px;
+    line-height: normal;
+  }
+  
+  .p-form-link {
+    padding-right: 50px;
+    text-align: left;
+  }
+
+  .input-form {
+    border: 0.5px solid #ccc;
+    width: 315px;
+    height: 45px;
+    border-radius: 3px;
+  }
+
+  .link-register {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .btn-form-login {
+    border: 2px solid #ec971f; /* Borde anaranjado */
+    width: 265px;
+    height: 45px; /* Altura proporcional */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #ec971f; /* Fondo del botón de color anaranjado */
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    color: white; /* Color del texto del botón en blanco */
+    font-size: 1.1vw;
+    margin: 0.5rem 0;
+}
