@@ -45,7 +45,7 @@ export default function ProveedorForm({ onSubmit }) {
   return (
     <section className="form-container">
       <Link to="/inventario" className="no-underline">
-      <h1 className="form-title">Agregar Nuevo Proveedor</h1>
+      <h2 className="inventory-view__title">Agregar Nuevo Proveedor</h2>
       </Link>
       <p className="form-description">
         Completa los siguientes datos para registrar un nuevo proveedor.

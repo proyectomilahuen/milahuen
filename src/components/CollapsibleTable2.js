@@ -52,11 +52,11 @@ export default function CollapsibleTable2() {
 
   return (
     <TableContainer component={Paper} className="table-container">
-      <Table aria-label="collapsible table" className="table">
+      <Table aria-label="collapsible table" className="table" >
         <TableHead>
-          <TableRow>
-            <TableCell />
-            <TableCell>
+          <TableRow className="first-row" >
+            <TableCell  />
+            <TableCell >
               <TableSortLabel
                 active={orderBy === 'name'}
                 direction={orderBy === 'name' ? order : 'asc'}

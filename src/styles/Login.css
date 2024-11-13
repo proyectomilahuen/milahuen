@@ -8,7 +8,7 @@
     text-align: center;
   }
 
-  .formulario {
+  .formulario-login {
     display: flex;
     gap: 15px;
   
@@ -19,7 +19,7 @@
     margin: 0 auto;
   }
 
-  .h1-form {
+  .h1-form-login {
     text-align: left;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     color: var(--color-primary);
@@ -30,7 +30,7 @@
     font-weight: 700;
   }
 
-  .p-form {
+  .p-form-login {
     text-align: left;
     padding-top: 15px;
     padding-bottom: 15px;
