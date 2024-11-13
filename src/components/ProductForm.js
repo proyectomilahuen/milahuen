@@ -43,7 +43,7 @@ export default function ProductForm({ onSubmit }) {
   return (
     <section className="form-container">
       <Link to="/inventario" className="no-underline">
-        <h1 className="form-title">Agregar Nuevo Producto</h1>
+        <h2 className="inventory-view__title">Agregar Nuevo Producto</h2>
       </Link>
       <p className="form-description">
         Completa los siguientes datos para agregar un nuevo producto a la lista.
