@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import "../styles/Login.css";
+import { useEffect, useRef } from 'react';
 
 const Login = ({ setUser }) => {
   const [username, setUsername] = useState("");
@@ -49,7 +50,7 @@ const Login = ({ setUser }) => {
       }
     } catch (error) {
       console.log("Error en la solicitud:", error);
-      
+
       const errorMessage = error.response && error.response.data && error.response.data.detail === "No User matches the given query."
         ? "Usuario no registrado o credenciales incorrectas."
         : "Hubo un error en la solicitud";
@@ -60,23 +61,25 @@ const Login = ({ setUser }) => {
   };
 
   return (
-    <section className="login">
+
+    <div className="login">
+
       <h1 className="h1-form">¡Hola!</h1>
       <p className="p-form">Qué bueno tenerte de vuelta.</p>
-      <form className="formulario" onSubmit={handleSubmit}>
+      <form className="formulario-login" onSubmit={handleSubmit}>
         <input
-          className="input-form"
+          className="input-form-login"
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="Usuario*"
+          placeholder="Usuario"
         />
         <input
-          className="input-form"
+          className="input-form-login"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Contraseña*"
+          placeholder="Contraseña"
         />
         <button className="btn-form-login" type="submit">
           Iniciar Sesión
@@ -91,7 +94,8 @@ const Login = ({ setUser }) => {
 
       {error && <p style={{ color: "#e71d36" }}>{error}</p>}
       {successMessage && <p style={{ color: "#28a745" }}>{successMessage}</p>}
-    </section>
+    </div>
+
   );
 };
 

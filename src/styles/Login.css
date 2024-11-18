@@ -1,72 +1,95 @@
 .login {
-    background-color: #ffd700; /* Color de fondo del contenedor */
-    padding: 15px;
-    border: 2px solid white;
-    border-radius: 9px;
-    max-width: 350px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .formulario-login {
-    display: flex;
-    gap: 15px;
-  
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    border-color: #00a499;
-    margin: 0 auto;
-  }
-
-  .h1-form-login {
-    text-align: left;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    color: var(--color-primary);
-    margin: 0%;
-    padding-left: 0px;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-  }
-
-  .p-form-login {
-    text-align: left;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 0px;
-    font-size: 1rem;
-    color: var(--color-primary);
-    font-size: 16px;
-    line-height: normal;
-  }
-  
-  .p-form-link {
-    padding-right: 50px;
-    text-align: left;
-  }
-
-  .input-form {
-    border: 0.5px solid #ccc;
-    width: 315px;
-    height: 45px;
-    border-radius: 3px;
-  }
-
-  .link-register {
-    color: blue;
-    text-decoration: underline;
-  }
-
-  .btn-form-login {
-    border: 2px solid #ec971f; /* Borde anaranjado */
-    width: 265px;
-    height: 45px; /* Altura proporcional */
-    border-radius: 4px; /* Bordes redondeados */
-    background-color: #ec971f; /* Fondo del botón de color anaranjado */
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    color: white; /* Color del texto del botón en blanco */
-    font-size: 1.1vw;
-    margin: 0.5rem 0;
-    cursor: pointer;
+  background-color: #ffd700;
+  background-image: url(../../public/images/Login.png);
+  padding: 15px;
+  border: 2px solid white;
+  border-radius: 9px;
+  max-width: 360px;
+  margin: 0 auto;
+  text-align: center;
 }
+
+
+
+.h1-form-login {
+  text-align: left;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  color: var(--color-primary);
+  margin: 0%;
+  padding-left: 0px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.p-form-login {
+  text-align: left;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 0px;
+  font-size: 1rem;
+  color: var(--color-primary);
+  font-size: 16px;
+  line-height: normal;
+}
+
+.p-form-link {
+  padding-right: 50px;
+  text-align: left;
+}
+
+.input-form-login {
+  border: none;
+  width: 315px;
+  height: 48px;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: rgba(204, 234, 188, 0.3);
+  color: #fff;
+}
+
+.input-form-login:hover {
+  background-color: rgba(204, 234, 188, 0.7);
+  /* Fondo más opaco al hacer hover */
+  border-color: rgba(204, 234, 188, 1);
+  /* Borde más opaco al pasar el ratón */
+}
+
+.input-form-login::placeholder {
+  color: rgba(240, 246, 238, 0.981);
+  font-size: 15px;
+  font-family: "Noto Sans", serif;
+  font-weight: 450;
+  /* Cambia el color del texto del placeholder a blanco */
+}
+
+.link-register {
+  color: blue;
+  text-decoration: underline;
+}
+
+.btn-form-login {
+  border: 2px solid #6d9040;
+  /* Borde anaranjado */
+  width: 265px;
+  height: 45px;
+  /* Altura proporcional */
+  border-radius: 4px;
+  /* Bordes redondeados */
+  background-color: #6d9040;
+  /* Fondo del botón de color anaranjado */
+  font-family: "Noto Sans", serif;
+  color: white;
+  /* Color del texto del botón en blanco */
+  font-size: 16px;
+  font-weight: 410;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.btn-form-login:hover {
+  background-color: #4d7032; /* Fondo más oscuro cuando se pasa el ratón */
+  border-color: #4d7032; /* Borde más oscuro */
+}
+
