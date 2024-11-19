@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import ProductCard from '../components/ProductCard';
+import  FloatingButton from '../components/FloatingButton' ;
 import '../styles/ProductView.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -79,6 +80,7 @@ function ProductView() {
   };
 
   return (
+    
     <div className="product-view">
       <div className="product-view__carousel">
         <Slider {...carouselSettings}>
@@ -113,6 +115,7 @@ function ProductView() {
           />
         ))}
       </div>
+      <FloatingButton />
     </div>
   );
 }

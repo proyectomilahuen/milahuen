@@ -1,6 +1,7 @@
 // src/views/Envasados.js
 import React from 'react';
 import ProductCard from '../components/ProductCard';
+import  FloatingButton from '../components/FloatingButton' ;
 import '../styles/ProductView.css';
 
 function Envasados() {
@@ -25,6 +26,7 @@ function Envasados() {
           />
         ))}
       </div>
+      <FloatingButton />
     </div>
   );
 }

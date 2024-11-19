@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import '../styles/Navbar.css';
 
+
 function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -36,7 +37,9 @@ function Navbar() {
   return (
     <nav className={`navbar ${isVisible ? 'visible' : 'hidden'}`}>
       <div className="navbar__logo">
-        <img src="/images/logo.png" alt="Logo" />
+        <Link to="/"> 
+          <img src="/images/logo.png" alt="Logo" />
+        </Link>
       </div>
       <ul className="navbar__links">
         <li>
@@ -73,10 +76,7 @@ function Navbar() {
           <Link to="/nosotros">¿Quiénes somos?</Link>
         </li>
         <li>
-          <Link to="/inventario">Inventario</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
+          <Link to="/login" className="login-link">Iniciar sesión</Link>
         </li>
       </ul>
       <div className="navbar__search">

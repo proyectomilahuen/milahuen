@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductCard from '../components/ProductCard';
+import  FloatingButton from '../components/FloatingButton' ;
 import '../styles/ProductView.css';
 
 function Legumbres() {
@@ -23,6 +24,7 @@ function Legumbres() {
           />
         ))}
       </div>
+      <FloatingButton />
     </div>
   );
 }

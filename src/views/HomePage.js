@@ -1,6 +1,7 @@
 import React from 'react';
 import ReuseView from './ReuseView';
 import ProductView from './ProductView';
+import  FloatingButton from '../components/FloatingButton' ;
 import '../styles/HomePage.css';
 
 function HomePage() {
@@ -13,6 +14,7 @@ function HomePage() {
 
       <section className="home-page__products">
         <ProductView />
+        <FloatingButton />
       </section>
     </div>
   );

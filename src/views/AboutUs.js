@@ -1,4 +1,5 @@
 import React from 'react';
+import  FloatingButton from '../components/FloatingButton' ;
 import '../styles/AboutUs.css';
 
 function AboutUs() {
@@ -32,6 +33,7 @@ function AboutUs() {
             Aspiramos a que cada cliente de Milahuén se convierta en un embajador de la sostenibilidad e inclusión, dos conceptos que encontrarás de manera tangible en Milahuén.
           </p>
         </div>
+        <FloatingButton />
       </div>
     </section>
   );

@@ -1,0 +1,21 @@
+.floating-btn {
+    position: fixed; 
+    bottom: 20px;    
+    right: 20px;     
+    background-color: #25d366; 
+    border: none; 
+    border-radius: 50%;
+    padding: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    cursor: pointer; 
+    z-index: 1000;
+    transition: all 0.3s ease; 
+  }
+  
+  .floating-btn:hover {
+    transform: scale(1.1); 
+  }
+  
+  .floating-btn:focus {
+    outline: none; 
+  }
