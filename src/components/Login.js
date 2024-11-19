@@ -12,8 +12,7 @@ const Login = ({ setUser }) => {
     e.preventDefault();
 
     if (!username || !password) {
-      setError("Por favor ingresa ambos campos");
-      setSuccessMessage("");
+      alert("Por favor, ingresa ambos campos.");
       return;
     }
 
@@ -29,7 +28,7 @@ const Login = ({ setUser }) => {
       const { token, user } = response.data;
 
       if (!token) {
-        setError("Usuario no registrado o credenciales incorrectas");
+        alert("Usuario no registrado o credenciales incorrectas.");
         return;
       }
 
@@ -39,21 +38,22 @@ const Login = ({ setUser }) => {
         email: user.email,
       });
 
-      const adminToken = process.env.REACT_APP_ADMIN_TOKEN; 
-      if (token === adminToken) {
-        setSuccessMessage("Inicio de sesión exitoso.");
-        setError(null);
+      setSuccessMessage("Inicio de sesión exitoso.");
+      setError(null);
+      setTimeout(() => {
         window.location.replace("/inventario");
-      } else {
-        setSuccessMessage("Inicio de sesión exitoso, pero no tienes permisos de administrador.");
-      }
+      }, 1000);
     } catch (error) {
       console.log("Error en la solicitud:", error);
 
-      const errorMessage = error.response && error.response.data && error.response.data.detail === "No User matches the given query."
-        ? "Usuario no registrado o credenciales incorrectas."
-        : "Hubo un error en la solicitud";
+      const errorMessage =
+        error.response && error.response.data && error.response.data.detail
+          ? error.response.data.detail === "No User matches the given query."
+            ? "Usuario no registrado o credenciales incorrectas."
+            : error.response.data.detail
+          : "Hubo un error en la solicitud";
 
+      alert(errorMessage);
       setError(errorMessage);
       setSuccessMessage("");
     }
@@ -89,7 +89,6 @@ const Login = ({ setUser }) => {
         </p>
       </form>
 
-      {error && <p style={{ color: "#e71d36" }}>{error}</p>}
       {successMessage && <p style={{ color: "#28a745" }}>{successMessage}</p>}
     </div>
   );
