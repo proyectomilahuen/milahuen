@@ -17,7 +17,7 @@ function Footer() {
         <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
           <FaFacebook />
         </a>
-        <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/emporiomilahuen/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
           <FaInstagram />
         </a>
         <a href="https://tiktok.com" aria-label="TikTok" target="_blank" rel="noopener noreferrer">

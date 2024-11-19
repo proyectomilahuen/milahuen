@@ -10,12 +10,22 @@
   margin-top: 30px;
 }
 
-
+.registro {
+  background-color: #fff;
+  background-image: url(../../public/images/Registro.png);
+  padding: 15px;
+  border: 2px solid white;
+  border-radius: 9px;
+  max-width: 360px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 30px;
+}
 
 .h1-form-login {
-  text-align: left;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  color: var(--color-primary);
+  text-align: center;
+  font-family: "Noto Sans", serif;
+  color: #333333;
   margin: 0%;
   padding-left: 0px;
   font-size: 24px;
@@ -24,14 +34,15 @@
 }
 
 .p-form-login {
-  text-align: left;
+  text-align: center;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 0px;
   font-size: 1rem;
-  color: var(--color-primary);
+  color: #333333;;
   font-size: 16px;
   line-height: normal;
+  
 }
 
 .p-form-link {

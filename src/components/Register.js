@@ -1,17 +1,18 @@
 import { useState } from "react";
 import axios from "axios";
-import "../styles/Register.css";
+import "../styles/Login.css";
 
 const Register = ({ onRegisterSuccess }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState("");
   const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!email || !password) {
-      setError("Por favor ingresa ambos campos");
+    if (!email || !password || !user) {
+      setError("Por favor ingresa todos los campos");
       return;
     }
 
@@ -31,26 +32,43 @@ const Register = ({ onRegisterSuccess }) => {
   };
 
   return (
-    <form className="formulario" onSubmit={handleSubmit}>
+    <div className="login">
+    <h1 className="h1-form-login">Regístrate</h1>
+    <p className="p-form-login">Crea una cuenta para continuar</p>
+    <form className="formulario-login" onSubmit={handleSubmit}>
+    <input
+        className="input-form-login"
+        type="user"
+        value={user}
+        onChange={(e) => setUser(e.target.value)}
+        placeholder="Nombre"
+      />
       <input
-        className="input-form"
+        className="input-form-login"
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="Correo electrónico*"
+        placeholder="Correo electrónico"
       />
       <input
-        className="input-form"
+        className="input-form-login"
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        placeholder="Contraseña*"
+        placeholder="Contraseña"
       />
-      <button className="btn-form-register" type="submit">
+      <button className="btn-form-login" type="submit">
         Crear Cuenta
       </button>
-      {error && <p style={{ color: "#e71d36" }}>{error}</p>}
+      <p className="p-form-link">
+      ¿Ya tienes una cuenta?{" "}
+          <a className="link-register" href="/login">
+          Inicia sesión
+          </a>
+        </p>
+
     </form>
+    </div>
   );
 };
 

@@ -64,8 +64,8 @@ const Login = ({ setUser }) => {
 
     <div className="login">
 
-      <h1 className="h1-form">¡Hola!</h1>
-      <p className="p-form">Qué bueno tenerte de vuelta.</p>
+      <h1 className="h1-form-login">¡Hola!</h1>
+      <p className="p-form-login">Qué bueno tenerte de vuelta.</p>
       <form className="formulario-login" onSubmit={handleSubmit}>
         <input
           className="input-form-login"
