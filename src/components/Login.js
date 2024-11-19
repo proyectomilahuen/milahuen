@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import "../styles/Login.css";
-import { useEffect, useRef } from 'react';
 
 const Login = ({ setUser }) => {
   const [username, setUsername] = useState("");
@@ -22,7 +21,7 @@ const Login = ({ setUser }) => {
       console.log("Enviando solicitud de login...");
 
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}login/`,
+        "https://emporio-milahuen.onrender.com/login/",
         { username, password },
         { headers: { "Content-Type": "application/json" } }
       );
@@ -40,7 +39,7 @@ const Login = ({ setUser }) => {
         email: user.email,
       });
 
-      const adminToken = process.env.REACT_APP_ADMIN_TOKEN;
+      const adminToken = process.env.REACT_APP_ADMIN_TOKEN; 
       if (token === adminToken) {
         setSuccessMessage("Inicio de sesión exitoso.");
         setError(null);
@@ -61,11 +60,9 @@ const Login = ({ setUser }) => {
   };
 
   return (
-
     <div className="login">
-
-      <h1 className="h1-form-login">¡Hola!</h1>
-      <p className="p-form-login">Qué bueno tenerte de vuelta.</p>
+      <h1 className="h1-form">¡Hola!</h1>
+      <p className="p-form">Qué bueno tenerte de vuelta.</p>
       <form className="formulario-login" onSubmit={handleSubmit}>
         <input
           className="input-form-login"
@@ -95,7 +92,6 @@ const Login = ({ setUser }) => {
       {error && <p style={{ color: "#e71d36" }}>{error}</p>}
       {successMessage && <p style={{ color: "#28a745" }}>{successMessage}</p>}
     </div>
-
   );
 };
 

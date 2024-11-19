@@ -46,6 +46,48 @@
   color: #1F271B;
 }
 
+.navbar__search-results {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 100%;
+  max-width: 300px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.search-result-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s ease;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: #f0f0f0;
+}
+
+.search-result-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.search-result-price {
+  color: #c39406;
+}
+
+
 /* Estilos para el menú desplegable debajo de "Productos" */
 .navbar__link-dropdown {
   position: relative;
