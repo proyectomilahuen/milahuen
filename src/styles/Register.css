@@ -1,66 +1,108 @@
-.register {
-    background-color: #fff;
-    background-image: url(../../public/images/Login.png);
-    padding: 15px;
-    border: 2px solid white;
-    border-radius: 9px;
-    max-width: 360px;
+.login, .register {
+    background-color: #f8f3e9;
+    padding: 20px;
+    border: 2px solid #e2c275;
+    border-radius: 10px;
+    max-width: 400px;
     margin: 0 auto;
+    margin-top: 50px;
     text-align: center;
-    margin-top: 30px;
-}
-
-.h1-form {
-    text-align: left;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    color: var(--color-primary);
-    margin: 0%;
-    padding-left: 0px;
-    font-size: 24px;
-    font-style: normal;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .h1-form-login, .h1-form {
+    text-align: center;
+    font-family: "Noto Sans", serif;
+    color: #6d9040;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 28px;
     font-weight: 700;
-}
-
-.p-form {
-    text-align: left;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 0px;
-    font-size: 1rem;
-    color: var(--color-primary);
+  }
+  
+  .p-form-login, .p-form {
+    font-family: "Noto Sans", serif;
+    color: #555555;
     font-size: 16px;
-    line-height: normal;
-}
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
 
-.input-form.register {
+  .input-form-login, .input-form-register {
+    border: 1px solid #d0d0d0;
     width: 100%;
+    height: 50px;
+    border-radius: 6px;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.btn-form-register {
-    width: 100%;
-    padding: 10px;
-    background-color: #ec971f;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.btn-form-register:hover {
-    background-color: #d8871b;
-}
-
-.p-form-link {
-    font-size: 15px;
+    background-color: #f5f5f5;
     color: #333;
-    font-weight: 400;
-}
-
-.link-login {
-    color: blue;
+    font-family: "Noto Sans", serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  .input-form-login:hover, .input-form-register:hover {
+    background-color: #ffffff;
+    border-color: #6d9040;
+  }
+  
+  .input-form-login:focus, .input-form-register:focus {
+    border: 2px solid #6d9040;
+    outline: none;
+    box-shadow: 0px 0px 4px rgba(109, 144, 64, 0.5);
+  }
+  
+  .input-form-login::placeholder, .input-form-register::placeholder {
+    color: #aaa;
+    font-size: 15px;
+    font-family: "Noto Sans", serif;
+  }
+  
+  .btn-form-login, .btn-form-register {
+    border: 2px solid #6d9040;
+    width: 100%;
+    height: 50px;
+    border-radius: 6px;
+    background-color: #6d9040;
+    font-family: "Noto Sans", serif;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-form-login:hover, .btn-form-register:hover {
+    background-color: #4d7032;
+    border-color: #4d7032;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .link-register, .link-login {
+    color: #1f6feb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .link-register:hover, .link-login:hover {
     text-decoration: underline;
-}
+    color: #0044cc;
+  }
+  
+  .success-message {
+    color: #28a745;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .error-message {
+    color: #e71d36;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  

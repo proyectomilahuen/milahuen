@@ -26,7 +26,7 @@ function ProductCard({ image, name, price }) {
         >
           Agregar al carrito
         </button>
-        <button className="product-card__button buy-now">Comprar ahora</button>
+        {/*<button className="product-card__button buy-now">Comprar ahora</button> // Comprar ahora, sacado por el momento*/} 
       </div>
     </div>
   );

@@ -40,9 +40,6 @@ const Login = ({ setUser }) => {
 
       setSuccessMessage("Inicio de sesión exitoso.");
       setError(null);
-      setTimeout(() => {
-        window.location.replace("/inventario");
-      }, 1000);
     } catch (error) {
       console.log("Error en la solicitud:", error);
 
