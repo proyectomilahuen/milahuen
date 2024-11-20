@@ -53,6 +53,7 @@ function App() {
           <Route path="/productForm" element={<ProductForm />} />
           <Route path="/proveedorForm" element={<ProveedorForm />} />
           <Route path="/login" element={<LoginView />} />
+          <Route path="/registro" element={<RegisterView />} />
           <Route path="/perfil" element={<Profile />} />
           <Route path="/pedidos" element={<Orders />} />
         </Routes>
