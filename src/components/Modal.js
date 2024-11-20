@@ -3,7 +3,7 @@ import "../styles/Modal.css";
 
 const Modal = ({ children }) => {
   const handleClose = () => {
-    window.location.replace("/inventario");
+    window.location.replace("/productos");
   };
 
   return (

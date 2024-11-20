@@ -1,17 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import InventoryCard from '../components/InventoryCard';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 function InventoryView() {
     const navigate = useNavigate();
+    const [isAuthorized, setIsAuthorized] = useState(false); // Estado para controlar el acceso
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
         if (!user || user.username !== "pingeso") {
-            navigate('/inventario');
+            navigate('/login'); // Redirige si no está autorizado
+        } else {
+            setIsAuthorized(true); // Marca como autorizado si cumple la condición
         }
     }, [navigate]);
+
+    if (!isAuthorized) {
+        return null; // No renderiza nada hasta que se valide al usuario
+    }
 
     const products = [
         { id: 1, image: '/images/lista_prod.png', name: 'Productos' },

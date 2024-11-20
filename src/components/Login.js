@@ -7,7 +7,6 @@ const Login = ({ setUser }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  // Verificar si hay un usuario autenticado al cargar el componente
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem("user"));
     if (savedUser) {
@@ -53,7 +52,11 @@ const Login = ({ setUser }) => {
         email: user.email,
       });
 
-      window.location.replace("/perfil");
+      if (user.username === "pingeso") {
+        window.location.replace("/inventario");
+      } else {
+        window.location.replace("/perfil");
+      }
     } catch (error) {
       const errorMessage =
         error.response && error.response.data && error.response.data.detail
