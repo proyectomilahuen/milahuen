@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/Login.css";
 
@@ -6,7 +6,14 @@ const Login = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [successMessage, setSuccessMessage] = useState("");
+
+  // Verificar si hay un usuario autenticado al cargar el componente
+  useEffect(() => {
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+    if (savedUser) {
+      setUser(savedUser);
+    }
+  }, [setUser]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,8 +24,6 @@ const Login = ({ setUser }) => {
     }
 
     try {
-      console.log("Enviando solicitud de login...");
-
       const response = await axios.post(
         "https://emporio-milahuen.onrender.com/login/",
         { username, password },
@@ -32,34 +37,37 @@ const Login = ({ setUser }) => {
         return;
       }
 
+      // Guardar el usuario en localStorage
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          id: user.id,
+          username: user.username,
+          email: user.email,
+        })
+      );
+
       setUser({
         id: user.id,
         username: user.username,
         email: user.email,
       });
 
-      setSuccessMessage("Inicio de sesión exitoso.");
-      setError(null);
+      window.location.replace("/perfil");
     } catch (error) {
-      console.log("Error en la solicitud:", error);
-
       const errorMessage =
         error.response && error.response.data && error.response.data.detail
-          ? error.response.data.detail === "No User matches the given query."
-            ? "Usuario no registrado o credenciales incorrectas."
-            : error.response.data.detail
+          ? error.response.data.detail
           : "Hubo un error en la solicitud";
-
       alert(errorMessage);
       setError(errorMessage);
-      setSuccessMessage("");
     }
   };
 
   return (
     <div className="login">
-      <h1 className="h1-form">¡Hola!</h1>
-      <p className="p-form">Qué bueno tenerte de vuelta.</p>
+      <h1 className="h1-form-login">¡Hola!</h1>
+      <p className="p-form-login">Qué bueno tenerte de vuelta.</p>
       <form className="formulario-login" onSubmit={handleSubmit}>
         <input
           className="input-form-login"
@@ -85,8 +93,7 @@ const Login = ({ setUser }) => {
           </a>
         </p>
       </form>
-
-      {successMessage && <p style={{ color: "#28a745" }}>{successMessage}</p>}
+      {error && <p style={{ color: "#e71d36" }}>{error}</p>}
     </div>
   );
 };

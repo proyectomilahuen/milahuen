@@ -123,9 +123,6 @@ function Navbar() {
           <Link to="/nosotros">¿Quiénes somos?</Link>
         </li>
         <li>
-          <Link to="/login" className="login-link">
-            Iniciar sesión
-          </Link>
         </li>
       </ul>
       <div className="navbar__search">

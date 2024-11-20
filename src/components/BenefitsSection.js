@@ -56,7 +56,6 @@ function BenefitsSection() {
           <br /><br />
           Reutiliza tus frascos y Milahuén te premia con descuentos especiales.
         </p>
-        <img src="/images/reward.png" alt="Premios por reutilización" className="benefits-section__reward-image" />
       </div>
     </div>
   );

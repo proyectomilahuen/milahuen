@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import InventoryCard from '../components/InventoryCard';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-
 function InventoryView() {
+    const navigate = useNavigate();
 
-    const navigate = useNavigate(); // Creamos el hook para redirigir
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (!user || user.username !== "pingeso") {
+            navigate('/inventario');
+        }
+    }, [navigate]);
 
     const products = [
         { id: 1, image: '/images/lista_prod.png', name: 'Productos' },
@@ -20,24 +25,21 @@ function InventoryView() {
 
     const handleClick = (name) => {
         if (name === 'Lista de Proveedores') {
-            navigate('/listaProov'); // Redirige a /listaProov
+            navigate('/listaProov');
         }
         if (name === 'Productos') {
-            navigate('/listaProduct'); // Redirige a /listaProov
+            navigate('/listaProduct');
         }
         if (name === 'Editar Producto') {
-            navigate('/productForm'); // Redirige a /listaProov
+            navigate('/productForm');
         }
         if (name === 'Agregar Proveedor') {
-            navigate('/proveedorForm'); // Redirige a /listaProov
+            navigate('/proveedorForm');
         }
-        // Puedes agregar más condiciones si deseas manejar otros clics de manera diferente
     };
 
     return (
-
         <div>
-
             <Link to="/" className="no-underline">
                 <h2 className="inventory-view__title">Stock e Inventario</h2>
             </Link>
@@ -50,10 +52,9 @@ function InventoryView() {
                         onClick={() => handleClick(product.name)}
                     />
                 ))}
-            </div></div>
-
+            </div>
+        </div>
     );
 }
 
 export default InventoryView;
-

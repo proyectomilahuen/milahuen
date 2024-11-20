@@ -1,0 +1,46 @@
+.profile-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .profile-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #4d7032;
+  }
+  
+  .profile-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-card p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .btn-edit-profile {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #4d7032;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .btn-edit-profile:hover {
+    background: #3a5527;
+  }
+  

@@ -20,6 +20,8 @@ import CerealesIntegrales from './views/CerealesIntegrales';
 import Legumbres from './views/Legumbres';
 import Envasados from './views/Envasados';
 import AboutUs from './views/AboutUs';
+import Profile from './views/Profile'
+import Orders from './views/Orders';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -51,8 +53,8 @@ function App() {
           <Route path="/productForm" element={<ProductForm />} />
           <Route path="/proveedorForm" element={<ProveedorForm />} />
           <Route path="/login" element={<LoginView />} />
-          <Route path="/registro" element={<RegisterView />} />       
-
+          <Route path="/perfil" element={<Profile />} />
+          <Route path="/pedidos" element={<Orders />} />
         </Routes>
       </div>
 
