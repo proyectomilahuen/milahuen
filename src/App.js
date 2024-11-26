@@ -22,6 +22,7 @@ import Envasados from './views/Envasados';
 import AboutUs from './views/AboutUs';
 import Profile from './views/Profile'
 import Orders from './views/Orders';
+import AddStock from './views/addStock';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -56,6 +57,7 @@ function App() {
           <Route path="/registro" element={<RegisterView />} />
           <Route path="/perfil" element={<Profile />} />
           <Route path="/pedidos" element={<Orders />} />
+          <Route path="/addStock" element={<AddStock />} />
         </Routes>
       </div>
 

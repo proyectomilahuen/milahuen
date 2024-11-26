@@ -92,7 +92,7 @@ function Header({ onCartClick }) {
                   <>
                     <p className="profile-menu-item greeting">Hola, {user.username}</p>
 
-                    {user.username === "pingeso" && (
+                    {user?.is_staff && (
                       <Link to="/inventario" className="profile-menu-item">
                         Inventario
                       </Link>

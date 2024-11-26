@@ -31,30 +31,29 @@ const Login = ({ setUser }) => {
 
       const { token, user } = response.data;
 
-      if (!token) {
+      if (!token || !user) {
         alert("Usuario no registrado o credenciales incorrectas.");
         return;
       }
 
-      // Guardar el usuario en localStorage con la propiedad is_staff
       localStorage.setItem(
         "user",
         JSON.stringify({
           id: user.id,
           username: user.username,
           email: user.email,
-          is_staff: user.is_staff, // Agregar la propiedad is_staff
+          is_staff: user.is_staff,
         })
       );
+      localStorage.setItem("token", token);
 
       setUser({
         id: user.id,
         username: user.username,
         email: user.email,
-        is_staff: user.is_staff, // Agregar la propiedad is_staff
+        is_staff: user.is_staff,
       });
 
-      // Redirección basada en is_staff
       if (user.is_staff) {
         window.location.replace("/inventario");
       } else {
@@ -62,9 +61,7 @@ const Login = ({ setUser }) => {
       }
     } catch (error) {
       const errorMessage =
-        error.response && error.response.data && error.response.data.detail
-          ? error.response.data.detail
-          : "Hubo un error en la solicitud";
+        error.response?.data?.detail || "Hubo un error en la solicitud";
       alert(errorMessage);
       setError(errorMessage);
     }

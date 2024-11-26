@@ -43,6 +43,9 @@ function InventoryView() {
         if (name === 'Agregar Proveedor') {
             navigate('/proveedorForm');
         }
+        if (name === 'Agregar Stock'){
+            navigate('/addStock')
+        }
     };
 
     return (
