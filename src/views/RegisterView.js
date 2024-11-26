@@ -7,13 +7,17 @@ const RegisterView = () => {
 
   const handleRegisterSuccess = (message) => {
     setSuccessMessage(message);
+
+    setTimeout(() => {
+      window.location.replace("/login");
+    }, 3000);
   };
 
   return (
-    <div >
-    
+    <div className="register-view">
       <Register onRegisterSuccess={handleRegisterSuccess} />
-      {successMessage && <p style={{ color: "#28a745" }}>{successMessage}</p>}    </div>
+      {successMessage && <p style={{ color: "#28a745", marginTop: "20px" }}>{successMessage}</p>}
+    </div>
   );
 };
 

@@ -36,13 +36,14 @@ const Login = ({ setUser }) => {
         return;
       }
 
-      // Guardar el usuario en localStorage
+      // Guardar el usuario en localStorage con la propiedad is_staff
       localStorage.setItem(
         "user",
         JSON.stringify({
           id: user.id,
           username: user.username,
           email: user.email,
+          is_staff: user.is_staff, // Agregar la propiedad is_staff
         })
       );
 
@@ -50,9 +51,11 @@ const Login = ({ setUser }) => {
         id: user.id,
         username: user.username,
         email: user.email,
+        is_staff: user.is_staff, // Agregar la propiedad is_staff
       });
 
-      if (user.username === "pingeso") {
+      // Redirección basada en is_staff
+      if (user.is_staff) {
         window.location.replace("/inventario");
       } else {
         window.location.replace("/perfil");
