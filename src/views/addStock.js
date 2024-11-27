@@ -53,12 +53,12 @@ const AddStock = () => {
       console.log("Datos del producto:", productData);
   
       const response = await axios.post(
-        "https://emporio-milahuen.onrender.com/admin/api/product/add/",
+        "https://emporio-milahuen.onrender.com/api/productos/",
         productData,
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            Authorization: `Token ${token}`,
           },
         }
       );
