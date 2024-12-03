@@ -43,10 +43,17 @@
   align-items: center;  /* Centra la imagen verticalmente */
 }
 
+
 .about-us__image {
   width: 100%;  /* La imagen se ajustará al contenedor */
   height: auto;
   border-radius: 8px; /* Opcional, si quieres bordes redondeados */
+}
+
+.about-us__image:hover {
+  width: 95%;              /* Aumenta el tamaño al 60% cuando el mouse pasa sobre la imagen */
+  opacity: 0.8;            /* Reduce la opacidad ligeramente */
+  transform: scale(1.1) rotate(5deg);  /* Escala y rota ligeramente la imagen */
 }
 
 .about-us__subtitle {

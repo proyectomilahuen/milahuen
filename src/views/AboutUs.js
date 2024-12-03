@@ -29,7 +29,7 @@ function AboutUs() {
       
       <div className="about-us__content">
                 <div className=" about-us__section-image">
-          <img src="/images/rata_frase.png" alt="Imagen que muestra el propósito" className="about-us__image" />
+          <img src="/images/rata_frase.png" alt="Imagen que muestra el propósito" className="about-us__image " />
         </div>
         <div className="about-us__section about-us__section-text">
           <h3 className="about-us__subtitle">Visión</h3>

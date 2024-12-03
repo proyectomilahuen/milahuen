@@ -9,3 +9,39 @@
   .home-page__products {
     width: 100%;
   }
+
+  .images-container {
+    display: flex;            /* Aplica flexbox para que los elementos se acomoden horizontalmente */
+    justify-content: center;  /* Opcional: centra las imágenes dentro del contenedor */
+    gap: 20px;                /* Opcional: agrega espacio entre las imágenes */
+  }
+
+  .pack_inicial_frase { 
+    width: 30%;              /* Ancho del 50% del contenedor */
+    height: max-content;     /* Ajusta la altura automáticamente para mantener la relación de aspecto */
+    display: block;          /* Asegura que la imagen se comporte como un bloque */
+    border-bottom: 10px;
+    margin-left: auto;       /* Centra la imagen horizontalmente */
+    margin-right: 0;      /* Centra la imagen horizontalmente */
+    border-radius: 5%;      /* Bordes redondeados */
+    transition: all 0.5s ease-in-out; /* Transición suave para todas las propiedades */
+  }
+
+  .pack_inicial { 
+    width: 50%;              /* Ancho del 50% del contenedor */
+    height: max-content;     /* Ajusta la altura automáticamente para mantener la relación de aspecto */
+    display: block;          /* Asegura que la imagen se comporte como un bloque */
+    border-bottom: 10px;
+    margin-left: 0;       /* Centra la imagen horizontalmente */
+    margin-right: auto;      /* Centra la imagen horizontalmente */
+    border-radius: 5%;      /* Bordes redondeados */
+    transition: all 0.5s ease-in-out; /* Transición suave para todas las propiedades */
+  }
+  
+  /* Efecto al pasar el mouse */
+  .pack_inicial:hover {
+    width: 50%;              /* Aumenta el tamaño al 60% cuando el mouse pasa sobre la imagen */
+    opacity: 0.8;            /* Reduce la opacidad ligeramente */
+    transform: scale(1.1) rotate(5deg);  /* Escala y rota ligeramente la imagen */
+  }
+  
