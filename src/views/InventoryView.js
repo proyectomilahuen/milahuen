@@ -27,7 +27,7 @@ function InventoryView() {
         { id: 4, image: '/images/add_prov.png', name: 'Agregar Proveedor' },
         { id: 5, image: '/images/add.png', name: 'Agregar Stock' },
         { id: 6, image: '/images/remove.png', name: 'Eliminar Stock' },
-        { id: 7, image: '/images/caution.png', name: 'Editar Producto' },
+        { id: 7, image: '/images/caution.png', name: 'Añadir Producto' },
     ];
 
     const handleClick = (name) => {
@@ -37,7 +37,7 @@ function InventoryView() {
         if (name === 'Productos') {
             navigate('/listaProduct');
         }
-        if (name === 'Editar Producto') {
+        if (name === 'Añadir Producto') {
             navigate('/productForm');
         }
         if (name === 'Agregar Proveedor') {
