@@ -8,7 +8,6 @@ function ReuseInfo() {
   return (
     <div className="reuse-info">
 <p className="reuse-info__intro tipografia-home2">
-  Con tu ayuda hemos reutilizado miles de frascos de Milahuén para contribuir al medio ambiente.
   ¡Gracias por ser parte de este cambio!
 </p>
       <h2 className="reuse-info__counter tipografia-home2">

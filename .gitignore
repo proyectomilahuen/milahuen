@@ -30,3 +30,5 @@ yarn-error.log*
 
 # Otros archivos o carpetas específicas de tu proyecto
 coverage/
+
+.env

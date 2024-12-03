@@ -1,16 +1,22 @@
 .reuse-info {
   text-align: center;
   padding: 20px;
-  margin: 20px 0;
+  margin: 0px 0;
   
   border-radius: 8px;
 }
   
-  .reuse-info__intro {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 15px;
-  }
+.reuse-info__intro {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 0px;
+  width: 120%; /* Establece un ancho más grande y relativo */
+  max-width: 800px; /* Establece un límite para que no se haga demasiado grande */
+  margin-left: auto; /* Centra el párrafo horizontalmente */
+  margin-right: auto; /* Centra el párrafo horizontalmente */
+  line-height: 1.6; /* Mejora la legibilidad */
+  padding: 10px; /* Agrega un poco de espacio alrededor del texto */
+}
   
   .reuse-info__counter {
     font-size: 1.5rem;
@@ -24,29 +30,24 @@
     font-family: 'DynaPuff', sans-serif;
     font-weight: 400;
     font-size: 2.5rem;
-
-    color: white;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
 
   .tipografia-home2 {
     font-family: "Mansalva", sans-serif;
     font-weight: 700; 
     font-size: 3rem;
-    color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  
+    color: white;
   }
   .tipografia-home3 {
     font-family: "Indie Flower", cursive;
     font-weight: 400;
     font-style: normal;
     font-size: 3rem;
-    color: white;
+
   
   }
-
-
   
   .reuse-info__count {
     color: #c0e354;
@@ -66,8 +67,8 @@
   }
   
   .reuse-info__icon {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 80px;
     margin-bottom: 10px;
   }
   
@@ -75,5 +76,27 @@
     font-size: 0.9rem;
     color: #555;
     text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .reuse-info__intro {
+      font-size: 50px; /* Ajusta el tamaño de fuente en pantallas más pequeñas */
+      width: 120%; /* Aumenta un poco más el ancho en pantallas más pequeñas */
+    }
+    .tipografia-home2 {
+      font-size: 50px;
+      width: 95%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .reuse-info__intro {
+      font-size: 40px; /* Ajusta aún más el tamaño en pantallas muy pequeñas */
+      width: 150%; /* Hace que ocupe el 100% del ancho disponible */
+    }
+    .tipografia-home2 {
+      font-size: 30px;
+      width: 150%;
+    }
   }
   
