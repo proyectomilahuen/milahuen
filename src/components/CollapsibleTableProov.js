@@ -5,7 +5,8 @@ import {
   IconButton, Dialog, DialogActions, DialogContent, DialogTitle,
   TextField, Grid, Button
 } from '@mui/material';
-import { Edit } from '@mui/icons-material';
+import { Edit, Delete } from '@mui/icons-material';
+import '../styles/CollapsibleTable2.css';
 
 export default function CollapsibleTableProov() {
   const [rows, setRows] = useState([]);
@@ -17,7 +18,7 @@ export default function CollapsibleTableProov() {
   useEffect(() => {
     const fetchProveedores = async () => {
       try {
-        const token = localStorage.getItem('token'); // Obtén el token de autenticación
+        const token = localStorage.getItem('token'); // Obtener el token de autenticación
         if (!token) {
           setErrorMessage('No estás autenticado. Por favor, inicia sesión.');
           return;
@@ -60,24 +61,23 @@ export default function CollapsibleTableProov() {
     }
 
     try {
-      const token = localStorage.getItem('token'); // Obtén el token de autenticación
+      const token = localStorage.getItem('token');
       if (!token) {
         setErrorMessage('No estás autenticado. Por favor, inicia sesión.');
         return;
       }
 
-      const response = await axios.put(
+      await axios.put(
         `https://emporio-milahuen.onrender.com/api/proveedores/${selectedRow.id}/`,
         selectedRow,
         {
           headers: {
-            Authorization: `Token ${token}` // Envía el token en la solicitud
+            Authorization: `Token ${token}`
           }
         }
       );
 
-      // Actualizar la tabla local con los nuevos datos
-      const updatedRows = rows.map(row => (row.id === selectedRow.id ? selectedRow : row));
+      const updatedRows = rows.map((row) => (row.id === selectedRow.id ? selectedRow : row));
       setRows(updatedRows);
 
       setSuccessMessage('Proveedor actualizado exitosamente.');
@@ -89,10 +89,38 @@ export default function CollapsibleTableProov() {
     }
   };
 
+  const handleDelete = async (id) => {
+    if (!window.confirm('¿Estás seguro de que deseas eliminar este proveedor?')) {
+      return;
+    }
+
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        setErrorMessage('No estás autenticado. Por favor, inicia sesión.');
+        return;
+      }
+
+      await axios.delete(`https://emporio-milahuen.onrender.com/api/proveedores/${id}/`, {
+        headers: {
+          Authorization: `Token ${token}`
+        }
+      });
+
+      const updatedRows = rows.filter((row) => row.id !== id);
+      setRows(updatedRows);
+
+      setSuccessMessage('Proveedor eliminado exitosamente.');
+    } catch (error) {
+      console.error('Error al eliminar el proveedor:', error.response || error.message);
+      setErrorMessage('Error al eliminar el proveedor. Intenta nuevamente.');
+    }
+  };
+
   return (
     <div>
-      <TableContainer component={Paper}>
-        <Table aria-label="collapsible table">
+      <TableContainer component={Paper} className="table-container">
+        <Table aria-label="collapsible table" className="table">
           <TableHead>
             <TableRow>
               <TableCell>Nombre</TableCell>
@@ -115,6 +143,9 @@ export default function CollapsibleTableProov() {
                   <IconButton onClick={() => handleEditClick(row)}>
                     <Edit />
                   </IconButton>
+                  <IconButton onClick={() => handleDelete(row.id)}>
+                    <Delete />
+                  </IconButton>
                 </TableCell>
               </TableRow>
             ))}
@@ -124,12 +155,10 @@ export default function CollapsibleTableProov() {
 
       {/* Modal estilizado */}
       <Dialog open={isDialogOpen} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
-        <DialogTitle style={{ textAlign: 'center', fontWeight: 'bold' }}>
-          Editar Proveedor
-        </DialogTitle>
-        <DialogContent>
+        <DialogTitle className="modal-title">Editar Proveedor</DialogTitle>
+        <DialogContent className="modal-container">
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid item xs={12} className="modal-input">
               <TextField
                 fullWidth
                 label="Nombre"
@@ -139,7 +168,7 @@ export default function CollapsibleTableProov() {
                 required
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} className="modal-input">
               <TextField
                 fullWidth
                 label="Descripción"
@@ -150,7 +179,7 @@ export default function CollapsibleTableProov() {
                 rows={2}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} className="modal-input">
               <TextField
                 fullWidth
                 label="Correo"
@@ -160,7 +189,7 @@ export default function CollapsibleTableProov() {
                 required
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={6} className="modal-input">
               <TextField
                 fullWidth
                 label="Teléfono"
@@ -170,7 +199,7 @@ export default function CollapsibleTableProov() {
                 required
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={6} className="modal-input">
               <TextField
                 fullWidth
                 label="Dirección"
@@ -184,15 +213,16 @@ export default function CollapsibleTableProov() {
         <DialogActions>
           {errorMessage && <p style={{ color: 'red', marginRight: 'auto' }}>{errorMessage}</p>}
           {successMessage && <p style={{ color: 'green', marginRight: 'auto' }}>{successMessage}</p>}
-          <Button onClick={handleCloseDialog} color="secondary">
+          <Button onClick={handleCloseDialog} className="cancel-button">
             Cancelar
           </Button>
-          <Button onClick={handleSave} variant="contained"
-              style={{
-                backgroundColor: '#4CAF50',
-                color: 'white',
-              }}>Guardar
-        </Button>
+          <Button
+            onClick={handleSave}
+            variant="contained"
+            className="save-button"
+          >
+            Guardar
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
