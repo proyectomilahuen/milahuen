@@ -1,14 +1,14 @@
 import React from 'react';
-import  FloatingButton from '../components/FloatingButton' ;
+import FloatingButton from '../components/FloatingButton';
 import '../styles/AboutUs.css';
 
 function AboutUs() {
   return (
     <section className="about-us">
       <h2 className="about-us__title">Quiénes Somos</h2>
-      
+
       <div className="about-us__content">
-        <div className="about-us__section">
+        <div className="about-us__section about-us__section-text">
           <h3 className="about-us__subtitle">Misión</h3>
           <p className="about-us__text">
             En Milahuén apuntamos a promover un estilo de vida sostenible a través de la venta de productos envasados y a granel, ofreciendo alternativas de consumo que minimicen el desperdicio y fortalezcan nuestra comunidad. Nos esforzamos por inspirar hábitos de compra responsables, reduciendo la huella ambiental y fomentando la reutilización de nuestros envases como parte esencial de un cambio positivo.
@@ -20,8 +20,18 @@ function AboutUs() {
             Con la misma importancia en el foco ambiental, nos comprometemos a trabajar de la mano con mujeres, en especial madres, brindándoles oportunidades de desarrollo y apoyo en su rol fundamental dentro de la sociedad. Creemos en el poder de la inclusión económica y en el impacto positivo que cada una de ellas puede generar cuando tienen acceso a un entorno de trabajo justo, flexible y respetuoso con la vida familiar.
           </p>
         </div>
-        
-        <div className="about-us__section">
+        <div className=" about-us__section-image">
+          <img src="/images/chungungo_frase.png" alt="Imagen que muestra el propósito" className="about-us__image" />
+        </div>
+      </div>
+
+      
+      
+      <div className="about-us__content">
+                <div className=" about-us__section-image">
+          <img src="/images/rata_frase.png" alt="Imagen que muestra el propósito" className="about-us__image" />
+        </div>
+        <div className="about-us__section about-us__section-text">
           <h3 className="about-us__subtitle">Visión</h3>
           <p className="about-us__text">
             Queremos liderar un movimiento de consumo consciente en nuestra región, inspirando a cada persona a repensar la manera en que consume y elige productos que no solo alimenten el cuerpo, sino también la conciencia. En Milahuén, ofrecemos productos a granel y fomentamos el uso de envases retornables para minimizar el desperdicio y promover la extensión de vida útil de estos.
@@ -35,8 +45,10 @@ function AboutUs() {
         </div>
         <FloatingButton />
       </div>
+      
     </section>
   );
 }
 
 export default AboutUs;
+

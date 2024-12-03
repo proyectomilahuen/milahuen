@@ -1,10 +1,11 @@
+/* AboutUs.css */
+
 .about-us {
   padding: 40px 20px;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   color: #333;
   line-height: 1.6;
-  text-align: justify;
 }
 
 .about-us__title {
@@ -17,16 +18,35 @@
 
 .about-us__content {
   display: flex;
-  flex-direction: column;
-  gap: 40px;
+  justify-content: space-between;  /* Coloca la imagen y el texto en dos columnas */
+  gap: 40px;  /* Espacio entre los elementos */
 }
 
 .about-us__section {
+  flex: 1;  /* Hace que el contenido del texto ocupe el 50% del espacio */
   background-color: #f8f8f8;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: justify; 
+  margin-top: 20px;
+}
+
+.about-us__section-text {
+  margin-right: 20px;  /* Espacio entre el texto y la imagen */
+}
+
+.about-us__section-image {
+  flex: 1;  /* Hace que la imagen ocupe el 50% del espacio */
+  display: flex;  /* Usamos flexbox para centrar la imagen */
+  justify-content: center;  /* Centra la imagen horizontalmente */
+  align-items: center;  /* Centra la imagen verticalmente */
+}
+
+.about-us__image {
+  width: 100%;  /* La imagen se ajustará al contenedor */
+  height: auto;
+  border-radius: 8px; /* Opcional, si quieres bordes redondeados */
 }
 
 .about-us__subtitle {
@@ -36,12 +56,26 @@
   margin-bottom: 15px;
   border-left: 5px solid #c39406;
   padding-left: 10px;
-  text-align: justify;
 }
 
 .about-us__text {
   font-size: 1rem;
   margin-bottom: 15px;
   color: #555;
-  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  /* En pantallas pequeñas, apilamos los elementos verticalmente */
+  .about-us__content {
+    flex-direction: column;
+    align-items: center; /* Centra los elementos */
+  }
+
+  .about-us__section-text {
+    margin-right: 0;
+  }
+
+  .about-us__image {
+    max-width: 80%; /* Ajusta la imagen para pantallas pequeñas */
+  }
 }
