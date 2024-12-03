@@ -60,39 +60,52 @@ export default function CollapsibleTableProducts() {
   };
 
   const handleSave = async () => {
+    // Validar campos obligatorios
     if (!selectedRow.name || selectedRow.price === null || selectedRow.stock === null) {
       setErrorMessage('Los campos Nombre, Precio y Stock son obligatorios.');
       return;
     }
-
+  
+    // Crear un objeto con solo los campos que el backend espera
+    const updatedProduct = {
+      name: selectedRow.name,
+      description: selectedRow.description,
+      price: selectedRow.price,
+      stock: selectedRow.stock,
+      is_active: selectedRow.is_active,
+    };
+  
     try {
       const token = localStorage.getItem('token');
       if (!token) {
         setErrorMessage('No estás autenticado. Por favor, inicia sesión.');
         return;
       }
-
+  
       await axios.put(
         `https://emporio-milahuen.onrender.com/api/productos/${selectedRow.id}/`,
-        selectedRow,
+        updatedProduct,
         {
           headers: {
-            Authorization: `Token ${token}`
-          }
+            Authorization: `Token ${token}`,
+          },
         }
       );
-
-      const updatedRows = rows.map((row) => (row.id === selectedRow.id ? selectedRow : row));
+  
+      const updatedRows = rows.map((row) =>
+        row.id === selectedRow.id ? { ...row, ...updatedProduct } : row
+      );
       setRows(updatedRows);
-
+  
       setSuccessMessage('Producto actualizado exitosamente.');
       setErrorMessage('');
       setTimeout(handleCloseDialog, 2000);
     } catch (error) {
-      console.error('Error al actualizar el producto:', error.response || error.message);
+      console.error('Error al actualizar el producto:', error.response?.data || error.message);
       setErrorMessage('Error al actualizar el producto. Intenta nuevamente.');
     }
   };
+  
 
   const handleDelete = async (id) => {
     if (!window.confirm('¿Estás seguro de que deseas eliminar este producto?')) {
