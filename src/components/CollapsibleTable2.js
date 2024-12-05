@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
   IconButton, Dialog, DialogActions, DialogContent, DialogTitle,
   TextField, Grid, Button, TableSortLabel, Switch, FormControlLabel
 } from '@mui/material';
-import { Edit, Delete } from '@mui/icons-material';
+import { Edit, Delete, Add } from '@mui/icons-material';
 import '../styles/CollapsibleTable2.css';
 
 export default function CollapsibleTableProducts() {
+  const navigate = useNavigate();
   const [rows, setRows] = useState([]);
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('name');
@@ -149,6 +151,18 @@ export default function CollapsibleTableProducts() {
 
   return (
     <div>
+      {/* Botón para redirigir a ProductForm */}
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '10px' }}>
+        <Button
+          variant="contained"
+          startIcon={<Add />}
+          style={{ backgroundColor: '#e59400', color: 'white' }}
+          onClick={() => navigate('/productForm')} // Redirige a la ruta
+        >
+          Añadir Producto
+        </Button>
+      </div>
+
       <TableContainer component={Paper}>
         <Table aria-label="collapsible table" className="table">
           <TableHead>

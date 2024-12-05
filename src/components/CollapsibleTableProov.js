@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importar useNavigate
 import axios from 'axios';
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
   IconButton, Dialog, DialogActions, DialogContent, DialogTitle,
   TextField, Grid, Button
 } from '@mui/material';
-import { Edit, Delete } from '@mui/icons-material';
+import { Edit, Delete, Add } from '@mui/icons-material';
 import '../styles/CollapsibleTable2.css';
 
 export default function CollapsibleTableProov() {
+  const navigate = useNavigate(); // Hook para redirigir
   const [rows, setRows] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null);
   const [isDialogOpen, setDialogOpen] = useState(false);
@@ -119,6 +121,18 @@ export default function CollapsibleTableProov() {
 
   return (
     <div>
+      {/* Botón para redirigir a la vista de añadir proveedores */}
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '10px' }}>
+        <Button
+          variant="contained"
+          startIcon={<Add />}
+          style={{ backgroundColor: '#e59400', color: 'white' }}
+          onClick={() => navigate('/proveedorForm')} // Cambia esta ruta según corresponda
+        >
+          Añadir Proveedor
+        </Button>
+      </div>
+
       <TableContainer component={Paper} className="table-container">
         <Table aria-label="collapsible table" className="table">
           <TableHead>

@@ -24,9 +24,9 @@ function InventoryView() {
         { id: 1, image: '/images/lista_prod.png', name: 'Productos' },
         { id: 2, image: '/images/lista_prov.png', name: 'Lista de Proveedores' },
         { id: 3, image: '/images/informe.png', name: 'Informe' },
-        { id: 4, image: '/images/add_prov.png', name: 'Agregar Proveedor' },
+        //{ id: 4, image: '/images/add_prov.png', name: 'Agregar Proveedor' },
         //{ id: 5, image: '/images/add.png', name: 'Agregar Stock' },
-        { id: 7, image: '/images/caution.png', name: 'Añadir Producto' },
+        //{ id: 7, image: '/images/caution.png', name: 'Añadir Producto' },
     ];
 
     const handleClick = (name) => {
