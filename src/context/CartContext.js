@@ -1,10 +1,15 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  // Leer los datos del carrito desde el Local Storage
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem('cartItems');
+    return savedCart ? JSON.parse(savedCart) : []; // Si no existe en el Local Storage, inicializamos vacío
+  });
 
+  // Función para agregar productos al carrito
   const addToCart = (product) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.id === product.id);
@@ -20,17 +25,19 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  // Función para eliminar productos del carrito
   const removeFromCart = (productId) => {
     setCartItems((prevItems) =>
       prevItems.filter((item) => item.id !== productId)
     );
   };
 
+  // Función para limpiar el carrito
   const clearCart = () => {
     setCartItems([]);
   };
 
-  // Nueva función para actualizar la cantidad de un producto específico
+  // Función para actualizar la cantidad de un producto específico
   const updateQuantity = (productId, newQuantity) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
@@ -39,12 +46,10 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  // Nueva función para eliminar un producto específico
-  const removeItem = (productId) => {
-    setCartItems((prevItems) =>
-      prevItems.filter((item) => item.id !== productId)
-    );
-  };
+  // Guardar el carrito en el Local Storage cada vez que se actualice
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Guardamos el carrito
+  }, [cartItems]);
 
   return (
     <CartContext.Provider
@@ -53,8 +58,8 @@ export const CartProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         clearCart,
-        updateQuantity,  
-        removeItem       
+        updateQuantity,
+        removeItem: removeFromCart,
       }}
     >
       {children}

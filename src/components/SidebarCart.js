@@ -1,12 +1,18 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 import '../styles/SidebarCart.css';
 
 function SidebarCart({ isOpen, onClose }) {
   const { cartItems, updateQuantity, removeItem } = useContext(CartContext);
+  const navigate = useNavigate();
 
   // Calcular el total redondeado
   const total = Math.round(cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0));
+
+  const handleCheckout = () => {
+    navigate('/resumen'); // Redirige a la página de resumen
+  };
 
   return (
     <div className={`sidebar-cart ${isOpen ? 'open' : ''}`}>
@@ -53,7 +59,9 @@ function SidebarCart({ isOpen, onClose }) {
         <span>${total}</span>
       </div>
 
-      <button className="sidebar-cart__checkout">Continuar Compra</button>
+      <button className="sidebar-cart__checkout" onClick={handleCheckout}>
+        Continuar Compra
+      </button>
     </div>
   );
 }
