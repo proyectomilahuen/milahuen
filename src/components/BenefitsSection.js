@@ -51,10 +51,10 @@ function BenefitsSection() {
 
       <div className="benefits-section__reward">
         <p className="benefits-section__reward-text">
-          Reutilizar es una de las prácticas más efectivas en la economía circular.
-          Al hacerlo, reducimos el impacto ambiental y promovemos un uso más consciente de los recursos.
+          Reutilizar es una de las prácticas más efectivas en la <strong>economía circular</strong>.
+              Al hacerlo, reducimos el impacto ambiental y promovemos un uso más consciente de los recursos.
           <br /><br />
-          Reutiliza tus frascos y Milahuén te premia con descuentos especiales.
+          ¡Reutiliza tus frascos y te premiaremos con <strong>descuentos especiales</strong>!
         </p>
       </div>
     </div>

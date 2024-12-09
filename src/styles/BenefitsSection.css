@@ -1,5 +1,6 @@
 .benefits-section {
     padding: 20px;
+    margin-top: 100px;
     text-align: center;
   }
   
@@ -13,14 +14,14 @@
   
   .benefits-section__reward {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 100px;
     padding: 20px;
     background-color: rgba(249, 249, 249, 0.9);  
     border-radius: 8px;
   }
   
   .benefits-section__reward-text {
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: #666;
     max-width: 600px;
     margin: 0 auto 20px;

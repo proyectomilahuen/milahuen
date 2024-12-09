@@ -1,4 +1,3 @@
-/* Contenedor principal del carrusel */
 .carousel {
   position: relative;
   display: flex;
@@ -17,8 +16,9 @@
 .slide {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
-  transition: opacity 1s ease-in-out; /* Transición para las imágenes */
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+  border-radius: 30px;
 }
 
 .slide-hidden {
@@ -28,19 +28,21 @@
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 150vh; /* Asegura que ocupe toda la pantalla */
+  height: 150vh;
   overflow: hidden;
 }
 
 .carousel-content {
   position: absolute;
-  top: 0%; /* Puedes ajustar esto para cambiar la posición vertical de los componentes */
+  top: 0%;
   left: 50%;
   height: auto;
-  transform: translateX(-50%); /* Centra los componentes horizontalmente */
-  z-index: 1; /* Hace que los componentes estén sobre las imágenes */
-  color: white; /* Color del texto para asegurarse que se vea sobre el fondo */
-  text-align: center; /* Centra los textos dentro del contenedor */
+  transform: translateX(-50%);
+  z-index: 1;
+  color: white; 
+  text-align: center; 
+  align-items: center;
+  
 }
 
 .carousel-background {
@@ -49,7 +51,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Hace que las imágenes queden en el fondo */
+  z-index: -1;
 }
 
 .arrow {
@@ -71,7 +73,7 @@
 
 .arrow:hover {
   background-color: rgba(0, 0, 0, 0.8);
-  transform: scale(1.1); /* Efecto de aumentar el tamaño */
+  transform: scale(1.1);
 }
 
 .arrow-left {
@@ -104,7 +106,7 @@
 }
 
 .indicator:hover {
-  transform: scale(1.2);  /* Efecto de aumento en hover */
+  transform: scale(1.2);
 }
 
 .indicator-inactive {
@@ -137,8 +139,8 @@
 
 @media (max-width: 480px) {
   .reuse-info__intro {
-    font-size: 35px; /* Ajusta aún más el tamaño en pantallas muy pequeñas */
-    width: 100%; /* Hace que ocupe el 100% del ancho disponible */
+    font-size: 35px;
+    width: 100%; 
   }
   .tipografia-home2 {
     font-size: 35px;
