@@ -11,6 +11,7 @@ function SidebarCart({ isOpen, onClose }) {
   const total = Math.round(cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0));
 
   const handleCheckout = () => {
+    onClose(); // Oculta el carrito
     navigate('/resumen'); // Redirige a la página de resumen
   };
 
@@ -28,20 +29,20 @@ function SidebarCart({ isOpen, onClose }) {
                 <p>Precio: ${Math.round(item.price)}</p>
 
                 <div className="sidebar-cart__quantity-controls">
-                  <button 
-                    className="sidebar-cart__quantity-btn" 
+                  <button
+                    className="sidebar-cart__quantity-btn"
                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
                     disabled={item.quantity <= 1}
                   >-</button>
                   <span className="sidebar-cart__quantity">{item.quantity}</span>
-                  <button 
-                    className="sidebar-cart__quantity-btn" 
+                  <button
+                    className="sidebar-cart__quantity-btn"
                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
                   >+</button>
                 </div>
 
-                <button 
-                  className="sidebar-cart__remove-btn" 
+                <button
+                  className="sidebar-cart__remove-btn"
                   onClick={() => removeItem(item.id)}
                 >
                   Eliminar

@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 import '../styles/CartSummary.css';
 
 function CartSummary() {
-  const { cartItems, updateQuantity, removeItem } = useContext(CartContext);
+  const { cartItems, updateQuantity, removeItem, clearCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const [coupon, setCoupon] = useState('');
   const [discount, setDiscount] = useState(0);
@@ -91,6 +93,8 @@ function CartSummary() {
         }
 
         await handleGeneratePDF();
+        clearCart(); // Limpiar el carrito de compras
+        navigate('/'); // Redirigir al menú principal
       } else {
         console.error('Error al crear la orden:', response.statusText);
       }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Collapse, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Paper, Alert } from '@mui/material';
+import { Box, Collapse, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Paper, Alert, Select, MenuItem } from '@mui/material';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
 import { makeStyles } from '@mui/styles';
 import axios from 'axios';
@@ -15,9 +15,17 @@ const useRowStyles = makeStyles({
 });
 
 function Row(props) {
-    const { row, history, isSecondRow } = props;
-    const [open, setOpen] = React.useState(false);
+    const { row, history, productNames, isSecondRow, onUpdateStatus } = props;
+    const [open, setOpen] = useState(false);
     const classes = useRowStyles();
+
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+
+    const handleStatusChange = (event) => {
+        onUpdateStatus(row.id, event.target.value);
+    };
 
     return (
         <React.Fragment>
@@ -33,7 +41,16 @@ function Row(props) {
                 <TableCell align="left">
                     {new Date(row.order_date).toLocaleDateString('es-ES')}
                 </TableCell>
-                <TableCell align="left">{row.status}</TableCell>
+                <TableCell align="left">
+                    <Select
+                        value={row.status}
+                        onChange={handleStatusChange}
+                    >
+                        <MenuItem value="pendiente">Pendiente</MenuItem>
+                        <MenuItem value="cancelada">Cancelada</MenuItem>
+                        <MenuItem value="completada">Completada</MenuItem>
+                    </Select>
+                </TableCell>
                 <TableCell align="left">{row.total_price}</TableCell>
             </TableRow>
             <TableRow>
@@ -59,7 +76,7 @@ function Row(props) {
                                     {history.map((item) => (
                                         <TableRow key={item.id}>
                                             <TableCell component="th" scope="row">
-                                                Producto {item.product}
+                                                {productNames[item.product] || `Producto ${item.product}`}
                                             </TableCell>
                                             <TableCell align="left">{item.quantity}</TableCell>
                                             <TableCell align="left">{item.price_at_purchase}</TableCell>
@@ -75,8 +92,6 @@ function Row(props) {
     );
 }
 
-
-
 Row.propTypes = {
     row: PropTypes.shape({
         id: PropTypes.number.isRequired,
@@ -89,15 +104,18 @@ Row.propTypes = {
         total_price: PropTypes.number.isRequired,
     }).isRequired,
     history: PropTypes.array.isRequired,
+    productNames: PropTypes.object.isRequired,
+    onUpdateStatus: PropTypes.func.isRequired,
 };
 
 export default function OrdersItems() {
     const [rows, setRows] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
     const [historyData, setHistoryData] = useState({});
+    const [productNames, setProductNames] = useState({});
 
     useEffect(() => {
-        const fetchOrders = async () => {
+        const fetchOrdersAndProducts = async () => {
             try {
                 const token = localStorage.getItem('token');
                 if (!token) {
@@ -105,13 +123,26 @@ export default function OrdersItems() {
                     return;
                 }
 
-                const ordersResponse = await axios.get('https://emporio-milahuen.onrender.com/api/ordenes/', {
-                    headers: {
-                        Authorization: `Token ${token}`,
-                    },
-                });
+                const [ordersResponse, productsResponse] = await Promise.all([
+                    axios.get('https://emporio-milahuen.onrender.com/api/ordenes/', {
+                        headers: {
+                            Authorization: `Token ${token}`,
+                        },
+                    }),
+                    axios.get('https://emporio-milahuen.onrender.com/api/productos/', {
+                        headers: {
+                            Authorization: `Token ${token}`,
+                        },
+                    }),
+                ]);
 
                 const ordersData = ordersResponse.data;
+                const productsData = productsResponse.data;
+
+                const productNamesMap = productsData.reduce((acc, product) => {
+                    acc[product.id] = product.name;
+                    return acc;
+                }, {});
 
                 const historyPromises = ordersData.map(async (order) => {
                     const historyResponse = await axios.get(`https://emporio-milahuen.onrender.com/api/orden_items/order/${order.id}/`);
@@ -127,6 +158,7 @@ export default function OrdersItems() {
 
                 setRows(ordersData);
                 setHistoryData(historyMap);
+                setProductNames(productNamesMap);
                 setErrorMessage('');
             } catch (error) {
                 console.error('Error al obtener los productos:', error);
@@ -134,8 +166,33 @@ export default function OrdersItems() {
             }
         };
 
-        fetchOrders();
+        fetchOrdersAndProducts();
     }, []);
+
+    const updateOrderStatus = async (orderId, newStatus) => {
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                setErrorMessage('No estás autenticado. Por favor, inicia sesión.');
+                return;
+            }
+
+            await axios.patch(`https://emporio-milahuen.onrender.com/api/ordenes/${orderId}/`, { status: newStatus }, {
+                headers: {
+                    Authorization: `Token ${token}`,
+                },
+            });
+
+            setRows((prevRows) =>
+                prevRows.map((row) =>
+                    row.id === orderId ? { ...row, status: newStatus } : row
+                )
+            );
+        } catch (error) {
+            console.error('Error al actualizar el estado de la orden:', error);
+            setErrorMessage('Error al actualizar el estado de la orden.');
+        }
+    };
 
     return (
         <Box>
@@ -158,7 +215,9 @@ export default function OrdersItems() {
                                 key={row.id}
                                 row={row}
                                 history={historyData[row.id] || []}
+                                productNames={productNames}
                                 isSecondRow={index % 2 !== 0}
+                                onUpdateStatus={updateOrderStatus}
                             />
                         ))}
                     </TableBody>
@@ -167,4 +226,3 @@ export default function OrdersItems() {
         </Box>
     );
 }
-
