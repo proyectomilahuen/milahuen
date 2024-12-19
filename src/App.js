@@ -24,6 +24,7 @@ import Profile from './views/Profile';
 import Orders from './views/Orders';
 import AddStock from './views/addStock';
 import CartSummary from './components/CartSummary';
+import OrdersItems from './components/OrdersItems'
 import { Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 
@@ -61,6 +62,7 @@ function App() {
             <Route path="/pedidos" element={<Orders />} />
             <Route path="/addStock" element={<AddStock />} />
             <Route path="/resumen" element={<CartSummary />} />
+            <Route path="/ordenes" element={<OrdersItems />} />
           </Routes>
         </div>
 

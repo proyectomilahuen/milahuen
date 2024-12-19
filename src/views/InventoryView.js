@@ -25,7 +25,7 @@ function InventoryView() {
         { id: 2, image: '/images/lista_prov.png', name: 'Lista de Proveedores' },
         { id: 3, image: '/images/informe.png', name: 'Informe' },
         //{ id: 4, image: '/images/add_prov.png', name: 'Agregar Proveedor' },
-        //{ id: 5, image: '/images/add.png', name: 'Agregar Stock' },
+        { id: 4, image: '/images/add.png', name: 'Ordenes' },
         //{ id: 7, image: '/images/caution.png', name: 'Añadir Producto' },
     ];
 
@@ -41,6 +41,9 @@ function InventoryView() {
         }
         if (name === 'Agregar Proveedor') {
             navigate('/proveedorForm');
+        }
+        if (name === 'Ordenes') {
+            navigate('/ordenes');
         }
         /*if (name === 'Agregar Stock'){
             navigate('/addStock')
