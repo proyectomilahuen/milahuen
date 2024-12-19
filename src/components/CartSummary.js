@@ -178,47 +178,63 @@ function CartSummary() {
         </div>
       )}
 
-      <div className="cart-summary__total">
-        <span>Total con Descuento:</span>
-        <span>${Math.round(totalWithDiscount)}</span>
-      </div>
+      <div className="cart-summary__invoice full-width">
+        <h2 className="invoice-title">Factura de Compra</h2>
 
-      <div className="cart-summary__user-info">
-        <label htmlFor="name">Nombre Cliente</label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Juan Pablo"
-        />
-        <label htmlFor="email">Correo Electróncio</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="juan.pablo@gmail.com"
-        />
-        <label htmlFor="contactNumber">Número de Contacto</label>
-        <input
-          type="text"
-          id="contactNumber"
-          value={contactNumber}
-          onChange={(e) => setContactNumber(e.target.value)}
-          placeholder="56944486840"
-        />
-        <label htmlFor="address">Dirección</label>
-        <input
-          type="text"
-          id="address"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          placeholder="Avenida Dorsal 4321, Lo Prado"
-        />
-      </div>
+        <div className="cart-summary__total">
+          <div className="total-row">
+            <span className="total-label">Total con Descuento:</span>
+            <span className="total-value">${Math.round(totalWithDiscount)}</span>
+          </div>
+        </div>
 
-      <button className="cart-summary__finalize" onClick={validateAndSubmitOrder}>Finalizar Compra</button>
+        <div className="cart-summary__user-info">
+          <div className="input-group">
+            <label htmlFor="name">Nombre Cliente</label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Juan Pablo"
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="email">Correo Electrónico</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="juan.pablo@gmail.com"
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="contactNumber">Número de Contacto</label>
+            <input
+              type="text"
+              id="contactNumber"
+              value={contactNumber}
+              onChange={(e) => setContactNumber(e.target.value)}
+              placeholder="56944486840"
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="address">Dirección</label>
+            <input
+              type="text"
+              id="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Avenida Dorsal 4321, Lo Prado"
+            />
+          </div>
+        </div>
+
+        <button className="finalize-btn" onClick={validateAndSubmitOrder}>
+          Finalizar Compra
+        </button>
+      </div>
     </div>
   );
 }
