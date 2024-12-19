@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import '../styles/ProductCard.css';
 import { CartContext } from '../context/CartContext';
 
-function ProductCard({ image, name, price }) {
+function ProductCard({ id, image, name, price }) {
   const { addToCart } = useContext(CartContext);
 
-  const product = { id: name, image, name, price };
+  const product = { id, image, name, price };
 
   const handleAddToCart = () => {
     console.log("Producto agregado:", product);
