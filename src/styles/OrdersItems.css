@@ -1,0 +1,37 @@
+.first-row {
+    background-color: #d6d6d657; 
+    color: white;
+  }
+  
+  .second-row {
+    background-color: #fff; 
+    color: black; 
+  }
+
+  .table-head {
+    background-color:#c39406 ;
+    color: white !important;
+  }
+
+  .MuiTableHead-root .css-1e9a4b0-MuiTableCell-root {
+    background-color: #c39406;
+    color: white;
+    font-weight: bold;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  .MuiTableBody-root .css-1orzuox-MuiTableCell-root {
+    background-color: #c39406;
+    color: white !important;
+    font-weight: bold; 
+    padding: 12px 16px; 
+    text-align: left; 
+  }
+
+  .tablecell{
+    color: white !important;
+    font-weight: bold !important; 
+  }
+
+  
