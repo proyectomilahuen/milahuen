@@ -35,7 +35,7 @@ function CartSummary() {
 
   const handleGeneratePDF = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/api/boleta/', {
+      const response = await axios.post('https://emporio-milahuen.onrender.com/api/boleta/', {
         cartItems,
         total: totalWithDiscount,
         name,
@@ -66,7 +66,7 @@ function CartSummary() {
     }
 
     try {
-      const response = await axios.post('http://localhost:8000/api/ordenes/', {
+      const response = await axios.post('https://emporio-milahuen.onrender.com/api/ordenes/', {
         name,
         address,
         order_date: new Date().toISOString(),
@@ -82,7 +82,7 @@ function CartSummary() {
 
         // Iterar sobre cartItems y hacer POST a orden_items
         for (const item of cartItems) {
-          await axios.post('http://localhost:8000/api/orden_items/', {
+          await axios.post('https://emporio-milahuen.onrender.com/api/orden_items/', {
             quantity: item.quantity,
             price_at_purchase: item.price,
             order: orderId,
