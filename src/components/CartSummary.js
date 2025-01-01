@@ -1,8 +1,9 @@
 import axios from 'axios';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import '../styles/CartSummary.css';
+import { generatePDF } from './BoletaPDF';
 
 function CartSummary() {
   const { cartItems, updateQuantity, removeItem, clearCart } = useContext(CartContext);
@@ -32,32 +33,6 @@ function CartSummary() {
     } else {
       setDiscount(0);
       setCouponMessage('Cupón no válido.');
-    }
-  };
-
-  const handleGeneratePDF = async () => {
-    try {
-      const response = await axios.post('https://emporio-milahuen.onrender.com/api/boleta/', {
-        cartItems,
-        total: totalWithDiscount,
-        name,
-        email,
-        contactNumber,
-        address,
-      });
-
-      if (response.status === 200) {
-        const url = window.URL.createObjectURL(new Blob([response.data]));
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', 'boleta.pdf');
-        document.body.appendChild(link);
-        link.click();
-      } else {
-        console.error('Error al generar el PDF:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error al generar el PDF:', error);
     }
   };
 
@@ -92,7 +67,18 @@ function CartSummary() {
           });
         }
 
-        await handleGeneratePDF();
+        // Generar la boleta PDF
+        await generatePDF({
+          name,
+          email,
+          contactNumber,
+          address,
+          cartItems,
+          total,
+          discount,
+          totalWithDiscount,
+        });
+
         clearCart(); // Limpiar el carrito de compras
         navigate('/'); // Redirigir al menú principal
       } else {
